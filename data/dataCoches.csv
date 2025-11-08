@@ -1,4 +1,4 @@
-Brand,name,Year,KM,Fuel,Price,Matricula,Categoria
+nomMarca,nomModelo,anio,km,nomCombustible,precio,matricula,nomCat
 Opel,Corsa,2022,47707,Diésel,15700,8299 MXR,"Deportivo, Turismo"
 Peugeot,Rifter,2019,57194,Diésel,24900,1749 AIX,"Deportivo, Turismo"
 Renault,Kadjar,2017,66428,Diésel,17800,5953 SOC,"Deportivo, Turismo"
