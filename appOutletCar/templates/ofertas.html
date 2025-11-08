@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lista de Ofertas</title>
+    </head>
+    <body>
+        <div id="content">
+            <h1>Outlet Car</h1>
+            <h2>Lista de Ofertas</h2>
+            
+            {%comment %} Lista de todas las ofertas. ACTUALMENTE: solo precio. {% endcomment %}
+            {% if lista_ofertas %}
+                <ul>
+                {% for o in lista_ofertas %}
+                    <li>
+                        <a href="/appOutletCar/ofertas/{{ o.id }}">{{ o.precio }}</a>
+                    </li>
+                {% endfor %}
+                </ul>
+            {%else%}
+                <p>No hay ofertas creadas.</p>
+            {%endif%}
+        </div>
+    </body>
+</html>
