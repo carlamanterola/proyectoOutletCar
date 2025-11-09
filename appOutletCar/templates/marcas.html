@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lista de Marcas</title>
+    </head>
+    <body>
+        <div id="content">
+            <h1>Outlet Car</h1>
+            <h2>Lista de Marcas</h2>
+            <ul>
+                {% for marca in marcas %}
+                    <li>
+                        <a href="/appOutletCar/marcas/{{marca.id}}/">{{marca}}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </body>
+</html>

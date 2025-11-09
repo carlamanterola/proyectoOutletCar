@@ -10,10 +10,38 @@ def index(request):
 def index_ofertas(request):
     ofertas = get_list_or_404(Oferta)
     context = {'lista_ofertas': ofertas}
-    return render(request, 'ofertas.html', context)
+    return render(request, 'lista_ofertas.html', context)
 
 # Devuelve los detalles de una oferta en concreto según ID
 def ver_oferta(request, idOferta):
     oferta = get_object_or_404(Oferta, pk=idOferta)
-    context = {'oferta': oferta}
-    return render(request, 'oferta.html', context)
+    coche = oferta.coche
+
+    context = {'oferta': oferta, 'coche': coche}
+    return render(request, 'detalle_oferta.html', context)
+
+#Visualizar la lista de marcas
+def visualizar_marcas(request):
+    marcas = get_list_or_404(Marca)
+    context = {"marcas": marcas}
+    return render(request, "marcas.html", context)
+
+
+#Visualizar los coches de una marca en concreto segun ID
+def ver_marca(request, idMarca):
+    coches = get_list_or_404(Coche, idMarca)
+    context = {"coches": coches, "idMarca": idMarca}
+    return render(request, "marca.html", context)
+
+#Visualizar la lista de categorias
+def lista_categorias(request):
+    categorias = get_list_or_404(Categoria)
+    context = {'categorias': categorias}
+    return render(request, 'lista_categorias.html', context)
+
+#Visualizar los coches de una categoria en concreto segun ID
+def detalle_categoria(request, categoria_id):
+    categoria = get_object_or_404(Categoria, pk=categoria_id)
+    coches = Coche.objects.filter(idCat=categoria)
+    context = {'categoria': categoria, 'coches': coches}
+    return render(request, 'detalle_categoria.html', context)
