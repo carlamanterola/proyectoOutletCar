@@ -1,0 +1,14 @@
+footer {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: center;
+    gap: 200px;
+    background-color: #3C4044;
+}
+
+.blockfooter {
+    text-align: left;
+    float: left;
+    color: #E6E6E6;
+    padding-bottom: 50px;
+}
