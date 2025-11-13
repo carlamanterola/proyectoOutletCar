@@ -45,3 +45,15 @@ def detalle_categoria(request, categoria_id):
     coches = Coche.objects.filter(idCat=categoria)
     context = {'categoria': categoria, 'coches': coches}
     return render(request, 'detalle_categoria.html', context)
+# Página principal que muestra el coche más barato por cada marca
+def index(request):
+    marcas = Marca.objects.all()
+    coches_por_marca = [] 
+
+    for marca in marcas:
+        coches = Coche.objects.filter(idMarca=marca, idPrecio__isnull=False)
+        if coches.exists():
+            coche_mas_barato = coches.order_by('idPrecio__precio').first()
+            coches_por_marca.append(coche_mas_barato)
+
+    return render(request, 'index.html', {'coches': coches_por_marca})

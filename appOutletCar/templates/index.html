@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>OutlerCar</title>
+</head>
+<body>
+
+    <h1>Coche más barato por marca</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Precio (€)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for coche in coches %}
+                <tr>
+                    <td>{{ coche.idMarca.nombre|default:coche.idMarca }}</td>    <!--si no encuentra el nombre de la marca, muestra el id de la marca(sin ams por mejorar el codigo)   -->
+                    <td>{{ coche.modelo }}</td>
+                    <td>{{ coche.idPrecio.precio }}</td>
+                </tr>
+            {% empty %}                                                 <!--en caso de que no haya coches cargados en la lista muestra --> 
+                <tr>
+                    <td colspan="3">No hay coches disponibles</td>      <!-- con colspan unimos las tres columnas para que el mensaje de error quede centrado en la tabla -->
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>
