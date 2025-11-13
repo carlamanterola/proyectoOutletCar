@@ -27,10 +27,10 @@ class Oferta(models.Model):
 
 class Coche(models.Model):
     matricula = models.CharField(max_length = 8)
-    idMarca = models.ForeignKey(Marca, on_delete = models.CASCADE)
-    idCombustible = models.ForeignKey(Combustible, on_delete=models.CASCADE)
-    idPrecio = models.OneToOneField(Oferta, on_delete=models.SET_NULL, null=True, blank = True)
-    idCat = models.ManyToManyField(Categoria)
+    idMarca = models.ForeignKey(Marca, on_delete = models.CASCADE, related_name ='marca')
+    idCombustible = models.ForeignKey(Combustible, on_delete = models.CASCADE, related_name ='combustible')
+    idPrecio = models.OneToOneField(Oferta, on_delete = models.SET_NULL, null=True, blank = True, related_name ='oferta')
+    idCat = models.ManyToManyField(Categoria, related_name ='categoria')
     
     modelo = models.CharField(max_length = 50)
     anio = models.IntegerField()
