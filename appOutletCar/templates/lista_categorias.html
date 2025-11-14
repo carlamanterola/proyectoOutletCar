@@ -10,9 +10,9 @@
             <ul class="categoria-list">
                 {% for categoria in categorias %}
                     <li class="categoria-item">
-                        <span class="categoria-name">
+                        <p class="categoria-name">
                             {{categoria.nomCat}}
-                        </span>
+                        </p>
                         
                         <a href="{% url 'detalle_categoria' categoria.pk %}" class="btn ver-detalle">
                             Ver Detalle
@@ -20,8 +20,6 @@
                     </li>
                 {% endfor %}
             </ul>
-        {% else %}
-            <p class="no-data">No se encontraron categorías.</p>
         {% endif %}
     </main>
 
