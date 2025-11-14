@@ -20,7 +20,13 @@
             {% for coche in coches %}
                 <tr>
                     <td>{{ coche.idMarca.nombre|default:coche.idMarca }}</td>    <!--si no encuentra el nombre de la marca, muestra el id de la marca(sin ams por mejorar el codigo)   -->
-                    <td>{{ coche.modelo }}</td>
+                    <td>{
+                       <a href="{% url 'ver_oferta2' coche.idPrecio.id %}">
+                        {{ coche.modelo }}
+                        </a>
+
+
+                        }</td>
                     <td>{{ coche.idPrecio.precio }}</td>
                 </tr>
             {% empty %}                                                 <!--en caso de que no haya coches cargados en la lista muestra --> 

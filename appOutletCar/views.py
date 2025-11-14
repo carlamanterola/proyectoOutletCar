@@ -58,3 +58,11 @@ def index(request):
             coches_por_marca.append(coche_mas_barato)
 
     return render(request, 'index.html', {'coches': coches_por_marca})
+def ver_oferta2(request, idOferta):
+    oferta = get_object_or_404(Oferta, pk=idOferta)
+    coche = oferta.oferta
+    context = {
+        'oferta': oferta,
+        'coche': coche
+    }
+    return render(request, 'detalle_oferta.html', context)
