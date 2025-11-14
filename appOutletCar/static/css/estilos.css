@@ -53,3 +53,64 @@ li
     
 }
 
+.container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px 0;
+}
+
+.title {
+    font-size: 2rem;
+    color: #000000;
+    text-align: center;
+}
+
+.categoria-list {
+    list-style: none;
+    display: grid;
+}
+
+.categoria-item {
+    background-color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.categoria-name {
+    font-size: 1.2rem;
+    color: #000000;
+    text-align: center;
+}
+
+.btn.ver-detalle {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+}
+
+
+.containerCar {
+    display: grid;
+    margin-top: 20px;
+}
+
+.car {
+    background-color: white;
+    padding: 20px;
+}
+
+.car h3 {
+    font-size: 1.3rem;
+    color: #000000;
+    margin-bottom: 15px;
+}
+
+.car p {
+    margin: 8px 0;
+    color: #000000;
+}
+
