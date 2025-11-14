@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Outlet Car - Categorias{% endblock %}
+
+{% block header %}
+    <h1>Gestor de Categorias</h1>
+{% endblock header %}
+
+{% block nav %}
+    <a class="active" href="/appOutletCar/">Inicio</a>
+    <a href="/appOutletCar/ofertas/">Nuestras Ofertas</a>
+    <a href="/appOutletCar/marcas">Las Marcas</a>
+    <a href="/appOutletCar/categorias">Categorías</a>
+{% endblock nav %}
+
+{% block content %}
+    <main class="container">
+        <h2 class="title">Detalle de Categoría: {{categoria.nomCat}}</h2>
+        
+        {% if coches %}
+            <div class="containerCar">
+                {% for coche in coches %}
+                    <div class="car">
+                        <h3>{{ coche.modelo }}</h3>
+                        <p><strong>Marca:</strong> {{coche.idMarca.nomMarca}}</p>
+                        <p><strong>Año:</strong> {{coche.anio}}</p>
+                        <p><strong>Kilometros:</strong> {{coche.km}}</p>
+                        <p><strong>Tipo de combustible:</strong> {{coche.idCombustible.nomCombustible}}</p>
+                        <p><strong>Precio:</strong> {{coche.idPrecio.precio}} euros</p>
+                        </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="no-data">No hay coches asociados a esta categoría.</p>
+        {% endif %}
+
+        <a href="{% url 'lista_categorias' %}" class="btn btn-volver">
+            &larr; Volver a Categorías
+        </a>
+    </main>
+
+{% endblock content %}
+
+
+{% block footer %}
+
+    <div class="blockfooter">
+        <h3>CONTÁCTANOS</h3>
+        <p>+34 912 345 678</p>
+        <p>contacto@outletcar.com</p>
+     </div>
+
+    <div class="blockfooter">
+        <h3>VISÍTANOS</h3>
+        <p>C/ Falsa de OutletCar</p>
+        <p>28080 Madrid (España)</p>
+    </div>
+
+    <div class="blockfooter">
+        <h3>HORARIO</h3>
+        <p><b>L - V:</b> 8.00am - 20.00pm</p>
+        <p><b>Sab:</b> 8.00am - 13.00pm</p>
+    </div>
+{% endblock footer %}
