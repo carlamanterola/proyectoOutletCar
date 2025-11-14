@@ -8,11 +8,11 @@
     <body>
         <div id="content">
             <h1>Outlet Car</h1>
-            <h2>Lista de Coches con marca {{idMarca}}</h2>
+            <h2>Lista de Coches con marca {{marca.nomMarca}}</h2>
             <ul>
-                {% for coche in Coches %}
+                {% for coche in coches %}
                     <li>
-                        {{coche.idMarca}}, {{coche}}
+                        {{coche.idMarca.nomMarca}}, {{coche}}
                     </li>
                 {% endfor %}
             </ul>

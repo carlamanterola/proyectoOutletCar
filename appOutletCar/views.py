@@ -28,8 +28,10 @@ def visualizar_marcas(request):
 
 #Visualizar los coches de una marca en concreto segun ID
 def ver_marca(request, idMarca):
-    coches = get_list_or_404(Coche, idMarca)
-    context = {"coches": coches, "idMarca": idMarca}
+    #marcas = Marca.objects.get(id=idMarca)
+    marcas = get_object_or_404(Marca, id=idMarca)
+    coches = get_list_or_404(Coche, idMarca_id=idMarca)
+    context = {"coches": coches, "idMarca": idMarca, "marca": marcas}
     return render(request, "marca.html", context)
 
 #Visualizar la lista de categorias

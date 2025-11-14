@@ -10,9 +10,9 @@
             <h1>Outlet Car</h1>
             <h2>Lista de Marcas</h2>
             <ul>
-                {% for marca in marcas %}
+                {% for marc in marcas %}
                     <li>
-                        <a href="/appOutletCar/marcas/{{marca.id}}/">{{marca}}</a>
+                        <a href="{% url 'verMarca' marc.id%}">{{marc}}</a>
                     </li>
                 {% endfor %}
             </ul>
