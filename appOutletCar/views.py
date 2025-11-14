@@ -1,10 +1,8 @@
 from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.http import HttpResponse
-from .models import Marca, Categoria, Combustible, Oferta, Coche
+from .models import Marca, Categoria, Oferta, Coche
 
-# Página principal [PLACEHOLDER]
-def index(request):
-    return HttpResponse('PÁGINA PRINCIPAL :P')
+
 
 # Devuelve una lista de ofertas
 def index_ofertas(request):
@@ -58,11 +56,3 @@ def index(request):
             coches_por_marca.append(coche_mas_barato)
 
     return render(request, 'index.html', {'coches': coches_por_marca})
-def ver_oferta2(request, idOferta):
-    oferta = get_object_or_404(Oferta, pk=idOferta)
-    coche = oferta.oferta
-    context = {
-        'oferta': oferta,
-        'coche': coche
-    }
-    return render(request, 'detalle_oferta.html', context)
