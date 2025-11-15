@@ -67,24 +67,24 @@ td a{
     color:  #3C4044;
     
 }
-.container {
+.contenedor {
     width: 100%;
     max-width: 1200px;
     padding: 20px 0;
 }
 
-.title {
+.titulo {
     font-size: 2rem;
     color: #000000;
     text-align: center;
 }
 
-.categoria-list {
+.listaCategoria {
     list-style: none;
     display: grid;
 }
 
-.categoria-item {
+.elementoCategoria {
     background-color: white;
     padding: 20px;
     display: flex;
@@ -92,13 +92,13 @@ td a{
     align-items: center;
 }
 
-.categoria-name {
+.nombreCategoria {
     font-size: 1.2rem;
     color: #000000;
     text-align: center;
 }
 
-.btn.ver-detalle {
+.btn.verDetalle {
     display: inline-block;
     padding: 10px 20px;
     background-color: #007bff;
@@ -107,23 +107,23 @@ td a{
 }
 
 
-.containerCar {
+.contenedorCoche {
     display: grid;
     margin-top: 20px;
 }
 
-.car {
+.cocheDetalle {
     background-color: white;
     padding: 20px;
 }
 
-.car h3 {
+.cocheDetalle h3 {
     font-size: 1.3rem;
     color: #000000;
     margin-bottom: 15px;
 }
 
-.car p {
+.cocheDetalle p {
     margin: 8px 0;
     color: #000000;
 }

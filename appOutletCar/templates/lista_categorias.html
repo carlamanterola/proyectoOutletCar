@@ -3,18 +3,18 @@
 {% block title %}Outlet Car - Categorias{% endblock %}
 
 {% block content %}
-    <main class="container">
-        <h2 class="title">Categorías Disponibles</h2>
+    <main class="contenedor">
+        <h2 class="titulo">Categorías Disponibles</h2>
 
         {% if categorias %}
-            <ul class="categoria-list">
+            <ul class="listaCategoria">
                 {% for categoria in categorias %}
-                    <li class="categoria-item">
-                        <p class="categoria-name">
+                    <li class="elementoCategoria">
+                        <p class="nombreCategoria">
                             {{categoria.nomCat}}
                         </p>
                         
-                        <a href="{% url 'detalle_categoria' categoria.pk %}" class="btn ver-detalle">
+                        <a href="{% url 'detalle_categoria' categoria.pk %}" class="btn verDetalle">
                             Ver Detalle
                         </a>
                     </li>

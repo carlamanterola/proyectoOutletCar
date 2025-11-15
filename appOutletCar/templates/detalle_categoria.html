@@ -3,13 +3,13 @@
 {% block title %}Outlet Car - Categorias{% endblock %}
 
 {% block content %}
-    <main class="container">
-        <h2 class="title">Detalle de Categoría: {{categoria.nomCat}}</h2>
+    <main class="contenedor">
+        <h2 class="titulo">Detalle de Categoría: {{categoria.nomCat}}</h2>
         
         {% if coches %}
-            <div class="containerCar">
+            <div class="contendorCoche">
                 {% for coche in coches %}
-                    <div class="car">
+                    <div class="cocheDetalle">
                         <h3>{{ coche.modelo }}</h3>
                         <p><strong>Marca:</strong> {{coche.idMarca.nomMarca}}</p>
                         <p><strong>Año:</strong> {{coche.anio}}</p>
