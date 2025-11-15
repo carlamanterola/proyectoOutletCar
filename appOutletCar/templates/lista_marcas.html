@@ -11,12 +11,10 @@
                 {% for marc in marcas %}
                     <li class="elemento">
                         <p class="nombre">
-                            {{marc}}
+                            <strong>{{marc}}</strong>
                         </p>
                         
-                        <a href="{% url 'verMarca' marc.id %}" class="btn verDetalle">
-                            Ver Detalle
-                        </a>
+                        <a href="{% url 'verMarca' marc.id %}" class="btn-verDetalle">Más Detalles</a>
                     </li>
                 {% endfor %}
             </ul>

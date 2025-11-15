@@ -4,18 +4,17 @@
 
 {% block content %}
     {% if coche %}
-    {% comment %} Lista de todas las ofertas. ACTUALMENTE: solo precio. {% endcomment %}
-
-    <h3>Oferta número: {{oferta.id}}</h3>
-    <p>Matrícula: {{coche.matricula}}</p>
-    <p>Modelo: {{coche.modelo}}</p>
-    <p>Marca: {{coche.idMarca.nomMarca}}</p>
-    <p>Año: {{coche.anio}}</p>
-    <p>Combustible: {{coche.idCombustible.nomCombustible}}</p>
-    <p>Kilometraje: {{coche.km}}</p>
-    <p>Precio: {{coche.idPrecio.precio}}€</p>
+    {% comment %}MÁS ADELANTE SE AÑADIRÁN FOTOS DE LOS MODELOS??{% endcomment %}
     
-    <p>Lista de Categorías: </p>
+    <p><strong>Matrícula:</strong> {{coche.matricula}}</p>
+    <p><strong>Modelo:</strong> {{coche.modelo}}</p>
+    <p><strong>Marca:</strong> {{coche.idMarca.nomMarca}}</p>
+    <p><strong>Año:</strong> {{coche.anio}}</p>
+    <p><strong>Combustible:</strong> {{coche.idCombustible.nomCombustible}}</p>
+    <p><strong>Kilometraje:</strong> {{coche.km}}</p>
+    <p><strong>Precio:</strong> {{coche.idPrecio.precio}}€</p>
+    
+    <p><strong>Lista de Categorías: </strong></p>
     <ul>
         {% for cat in coche.idCat.all %}
             <li>{{cat.nomCat}}</li>

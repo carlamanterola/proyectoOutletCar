@@ -9,13 +9,16 @@
     {% if lista_ofertas %}
         <ul class = 'lista'>
         {% for o in lista_ofertas %}
-        <div>
             <li class = 'elemento'>
-                <p class="nombre">
-                    Oferta: <strong>{{o.id}}</strong> --- Precio: {{o.precio}}€</p> 
-                    <a href="{% url 'ver_oferta' o.id %}" class="btn verDetalle">Ver Detalle</a>
+                <div>
+                    <p class="nombre">{{o.oferta.idMarca.nomMarca}} {{o.oferta.modelo}}</p>
+                    <p class="detalles">{{o.oferta.idCombustible.nomCombustible}}, {{o.oferta.km}}km</p>
+                </div>
+                <div>
+                    <p class="precio"><strong>{{o.precio}}€</strong></p>
+                    <a href="{% url 'ver_oferta' o.id %}" class="btn-verDetalle">Más Detalles</a>
+                </div>
             </li>
-        </div>
         {% endfor %}
         </ul>
     {%else%}

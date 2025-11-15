@@ -13,7 +13,6 @@ def index_ofertas(request):
 # Devuelve los detalles de una oferta en concreto según ID
 def ver_oferta(request, idCoche):
     coche = get_object_or_404(Coche, pk=idCoche)
-
     context = {'coche': coche}
     return render(request, 'detalle_oferta.html', context)
 
@@ -21,7 +20,7 @@ def ver_oferta(request, idCoche):
 def visualizar_marcas(request):
     marcas = get_list_or_404(Marca)
     context = {"marcas": marcas}
-    return render(request, "marcas.html", context)
+    return render(request, "lista_marcas.html", context)
 
 
 #Visualizar los coches de una marca en concreto segun ID
@@ -30,7 +29,7 @@ def ver_marca(request, idMarca):
     marcas = get_object_or_404(Marca, id=idMarca)
     coches = get_list_or_404(Coche, idMarca_id=idMarca)
     context = {"coches": coches, "idMarca": idMarca, "marca": marcas}
-    return render(request, "marca.html", context)
+    return render(request, "detalle_marca.html", context)
 
 #Visualizar la lista de categorias
 def lista_categorias(request):
@@ -44,6 +43,7 @@ def detalle_categoria(request, idCat):
     coches = Coche.objects.filter(idCat=categoria)
     context = {'categoria': categoria, 'coches': coches}
     return render(request, 'detalle_categoria.html', context)
+
 # Página principal que muestra el coche más barato por cada marca
 def index(request):
     marcas = Marca.objects.all()
