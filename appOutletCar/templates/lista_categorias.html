@@ -3,7 +3,7 @@
 {% block title %}Outlet Car - Categorias{% endblock %}
 
 {% block content %}
-    <main class="contenedor">
+    <main class="contenedorLista">
         <h2 class="titulo">Categorías Disponibles</h2>
 
         {% if categorias %}
@@ -11,7 +11,7 @@
                 {% for categoria in categorias %}
                     <li class="elemento">
                         <p class="nombre">
-                            {{categoria.nomCat}}
+                            <strong>{{categoria.nomCat}}</strong>
                         </p>
                         
                         <a href="{% url 'detalle_categoria' categoria.pk %}" class="btn verDetalle">

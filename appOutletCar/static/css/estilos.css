@@ -67,9 +67,16 @@ td a{
     color:  #3C4044;
     
 }
+
+.contenedorLista {
+    width: 90%;
+    padding: 20px 0;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
 .contenedor {
     width: 100%;
-    max-width: 1200px;
     padding: 20px 0;
 }
 
@@ -90,12 +97,15 @@ td a{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border: 1px solid #3C4044;
+    margin-bottom: 10px;
 }
 
 .nombre {
     font-size: 1.2rem;
     color: #000000;
     text-align: center;
+    
 }
 
 .btn.verDetalle {
@@ -119,12 +129,15 @@ td a{
 
 .cocheDetalle h3 {
     font-size: 1.3rem;
-    color: #000000;
+    color: #fff5f5;
     margin-bottom: 15px;
+    background-color: #666e76;
 }
 
 .cocheDetalle p {
     margin: 8px 0;
     color: #000000;
+    text-align: center;
+    font-size: 1rem;
 }
 
