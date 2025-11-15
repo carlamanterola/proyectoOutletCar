@@ -79,12 +79,12 @@ td a{
     text-align: center;
 }
 
-.listaCategoria {
+.lista {
     list-style: none;
     display: grid;
 }
 
-.elementoCategoria {
+.elemento {
     background-color: white;
     padding: 20px;
     display: flex;
@@ -92,7 +92,7 @@ td a{
     align-items: center;
 }
 
-.nombreCategoria {
+.nombre {
     font-size: 1.2rem;
     color: #000000;
     text-align: center;
