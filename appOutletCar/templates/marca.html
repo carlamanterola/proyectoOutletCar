@@ -1,21 +1,24 @@
-<!DOCTYPE html>
-<html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Lista de Coches</title>
-    </head>
-    <body>
-        <div id="content">
-            <h1>Outlet Car</h1>
-            <h2>Lista de Coches con marca {{marca.nomMarca}}</h2>
-            <ul>
+{% extends "base.html" %}
+
+{% block title %}Outlet Car - Marcas{% endblock %}
+
+{% block content %}
+    <main class="contenedor">
+        <h2 class="titulo">Detalle de Marca: {{ marca }}</h2>
+
+        {% if coches %}
+            <div class="contenedorCoche">
                 {% for coche in coches %}
-                    <li>
-                        {{coche.idMarca.nomMarca}}, {{coche}}
-                    </li>
+                    <div class="cocheDetalle">
+                        <h3>{{coche.modelo}}</h3>
+                        <p><strong>Año: </strong>{{coche.anio}}</p>
+                        <p><strong>Kilometros: </strong>{{coche.km}}km</p>
+                        <p><strong>Tipo de combustible: </strong>{{coche.idCombustible}}</p>
+                        <p><strong>Precio: </strong>{{coche.idPrecio}}</p>
+                    </div>
                 {% endfor %}
-            </ul>
-        </div>
-    </body>
-</html>
+            </div>
+        {% endif %}
+    </main>
+
+{% endblock content %}
