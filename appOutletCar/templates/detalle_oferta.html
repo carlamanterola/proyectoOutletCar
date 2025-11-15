@@ -3,8 +3,6 @@
 {% block title %}Outlet Car - Ofertas{% endblock %}
 
 {% block content %}
-    <h1>Outlet Car</h1>
-
     {% if coche %}
     {% comment %} Lista de todas las ofertas. ACTUALMENTE: solo precio. {% endcomment %}
 
@@ -15,12 +13,12 @@
     <p>Año: {{coche.anio}}</p>
     <p>Combustible: {{coche.idCombustible.nomCombustible}}</p>
     <p>Kilometraje: {{coche.km}}</p>
-    <p>Precio: {{oferta.precio}}</p>
+    <p>Precio: {{coche.idPrecio.precio}}€</p>
     
     <p>Lista de Categorías: </p>
     <ul>
         {% for cat in coche.idCat.all %}
-            <li>{{ cat.nomCat }}</li>
+            <li>{{cat.nomCat}}</li>
         {% empty %}
             <li>Sin categorías.</li>
         {% endfor %}

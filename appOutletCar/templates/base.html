@@ -5,47 +5,54 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <title>{% block title %}TÍTULO [PLACEHOLDER]{% endblock %}</title>
     </head>
 
     <body>
-        <header>
-            {% block header %}
-            {% endblock header %}
+        <header class="portada">
+            <div class = "texto-portada">
+                {% block header %}
+                    <h1>OUTLET CAR</h1>
+                {% endblock header %}
+            </div>
         </header>
 
-        <nav>
-            <div class="topnav">
-                {% block nav %}
-                    <a class="active" href="/appOutletCar/">Inicio</a>
-                    <a href="/appOutletCar/ofertas/">Nuestras Ofertas</a>
-                    <a href="/appOutletCar/marcas">Las Marcas</a>
-                    <a href="/appOutletCar/categorias">Categorías</a>
-                {% endblock nav %}
-            </div>
+        <nav class="navbar">
+            {% block nav %}
+                <div class="nav-izq">
+                    <span class="logo"><img src="{% static 'images/logo.png' %}" alt="logo outlet car" style="width:210px;height:41px;"></span>
+                </div>
+
+                <ul class='nav-links'>
+                    <li><a class="inicio" href={%url 'index'%}>Inicio</a></li>
+                    <li><a href={%url 'lista_ofertas'%}>Nuestras Ofertas</a></li>
+                    <li><a href={%url 'visualizar_marcas'%}>Las Marcas</a></li>
+                    <li><a href={%url 'lista_categorias'%}>Categorías</a></li>
+                </ul>
+            {% endblock nav %}
         </nav>
 
-
-        <div id="content">
+        <div class="content">
             {% block content %}
             {% endblock content %} 
         </div>
 
         <footer>
             {% block footer %}
-                <div class="blockfooter">
+                <div class="bloque-footer">
                     <h3>CONTÁCTANOS</h3>
                     <p>+34 912 345 678</p>
                     <p>contacto@outletcar.com</p>
                 </div>
 
-                <div class="blockfooter">
+                <div class="bloque-footer">
                     <h3>VISÍTANOS</h3>
                     <p>C/ Falsa de OutletCar</p>
                     <p>28080 Madrid (España)</p>
                 </div>
 
-                <div class="blockfooter">
+                <div class="bloque-footer">
                     <h3>HORARIO</h3>
                     <p><b>L - V:</b> 8.00am - 20.00pm</p>
                     <p><b>Sab:</b> 8.00am - 13.00pm</p>

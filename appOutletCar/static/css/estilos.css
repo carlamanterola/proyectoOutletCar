@@ -1,61 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+body, html {
+    font-family: 'Inter', sans-serif;
+    font-size: 11pt;
+    line-height: 1.5;
+    height: 100%;
+    margin: 0;
+    background-color: white;
+}
+
+/* PORTADA */
+.portada {
+    /*tengo q escoger una imagen pa meter usando background-image*/
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/portada.jpg");
+    height: 40%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.texto-portada {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 25px;
+}
+
+.content {
+    margin: 60px;
+}
+
+/* CONTENEDOR PARA LA NAVBAR */
+.navbar {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #0A2A43;
+    color: white;
+}
+
+.nav-izq { /* Navbar a la IZQ */
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    display: inline-block;
+    padding: 4px 10px;
+    background: white;
+    color: black;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.nav-links { /* Navbar a la DCHA con links*/
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 25px;
+    }
+
+.nav-links a {
+    color: #73a5ff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+/* PARA EL BOTON INICIO EN AZUL */
+.nav-links a.inicio {
+    background: #007BFF;
+    color: white;
+    padding: 8px 18px;
+    border-radius: 7px;
+}
+
+/* FOOTER */
 footer {
     display: grid;
     grid-auto-flow: column;
     justify-content: center;
     gap: 200px;
-    background-color: #3C4044;
+    background-color: #0A2A43;
 }
 
-.blockfooter {
+.bloque-footer {
     text-align: left;
     float: left;
     color: #E6E6E6;
     padding-bottom: 50px;
 }
+
 p {
     font-size: 14px;   
-    font-family: 'Arial', sans-serif;
 }
+
 h1, h2, h3 {
-    font-family: 'Arial', sans-serif;
-    color: white;
     padding-top: 20px;
     text-align: center;
 }
-   
+
 a {
     text-decoration: none;
-    color: blue;
-}
-ul {
-    list-style-type: none;
-    padding: 0; 
-    margin: 0;
-}
-li
-{
-    padding-bottom: 10px;   
+    color: #007BFF;
 }
 
- th{
+th{
     padding: 16px;
     width: 5%;
     text-align: center;
-    background-color: #3C4044;
+    background-color: #0A2A43;
     color: white;
     border: 1px solid black;
-   
+
 }
- td {
+
+td {
     padding:  12px;
     text-align: center;
     background-color: white;
     border: 1px solid black;
     
 }
+
 td a{
     color: black;
     text-decoration: underline;
+}
+
+.bloque-oferta {
+    width: 90%;
+    
 }
 
 .tituloinicio {
@@ -63,9 +145,7 @@ td a{
     margin-top: 20px;
 }
 .tituloinicio h1 {
-    
     color:  #3C4044;
-    
 }
 
 .contenedorLista {
@@ -73,7 +153,6 @@ td a{
     padding: 20px 0;
     margin-left: 20px;
     margin-right: 20px;
-    margin: 0 auto;
 }
 
 .contenedor {

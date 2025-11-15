@@ -3,19 +3,23 @@
 {% block title %}Outlet Car - Ofertas{% endblock %}
 
 {% block content %}
-    <h1>Outlet Car</h1>
-            <h2>Lista de Ofertas</h2>
-            
-            {%comment %} Lista de todas las ofertas. ACTUALMENTE: solo precio. {% endcomment %}
-            {% if lista_ofertas %}
-                <ul>
-                {% for o in lista_ofertas %}
-                    <li>
-                        <a href="/appOutletCar/ofertas/{{ o.id }}">{{ o.precio }}</a>
-                    </li>
-                {% endfor %}
-                </ul>
-            {%else%}
-                <p>No hay ofertas creadas.</p>
-            {%endif%}
+    <div class = 'contenedorLista'>
+        <h2 class = titulo>Ofertas Disponibles</h2>
+    {%comment %} Lista de todas las ofertas. ACTUALMENTE: solo precio. {% endcomment %}
+    {% if lista_ofertas %}
+        <ul class = 'lista'>
+        {% for o in lista_ofertas %}
+        <div>
+            <li class = 'elemento'>
+                <p class="nombre">
+                    Oferta: <strong>{{o.id}}</strong> --- Precio: {{o.precio}}€</p> 
+                    <a href="{% url 'ver_oferta' o.id %}" class="btn verDetalle">Ver Detalle</a>
+            </li>
+        </div>
+        {% endfor %}
+        </ul>
+    {%else%}
+        <p>No hay ofertas creadas.</p>
+    {%endif%}
+    </div>
 {% endblock content %}

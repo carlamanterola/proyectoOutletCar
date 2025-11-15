@@ -7,15 +7,15 @@
         <h2 class="titulo">Detalle de Categoría: {{categoria.nomCat}}</h2>
         
         {% if coches %}
-            <div class="contendorCoche">
+            <div class="contenedorCoche">
                 {% for coche in coches %}
                     <div class="cocheDetalle">
                         <h3>{{ coche.modelo }}</h3>
                         <p><strong>Marca:</strong> {{coche.idMarca.nomMarca}}</p>
                         <p><strong>Año:</strong> {{coche.anio}}</p>
-                        <p><strong>Kilometros:</strong> {{coche.km}}</p>
+                        <p><strong>Kilómetros:</strong> {{coche.km}} km</p>
                         <p><strong>Tipo de combustible:</strong> {{coche.idCombustible.nomCombustible}}</p>
-                        <p><strong>Precio:</strong> {{coche.idPrecio.precio}} euros</p>
+                        <p><strong>Precio:</strong> {{coche.idPrecio.precio}}€</p>
                         </div>
                 {% endfor %}
             </div>
