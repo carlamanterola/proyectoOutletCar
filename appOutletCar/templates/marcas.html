@@ -1,21 +1,26 @@
-<!DOCTYPE html>
-<html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Lista de Marcas</title>
-    </head>
-    <body>
-        <div id="content">
-            <h1>Outlet Car</h1>
-            <h2>Lista de Marcas</h2>
-            <ul>
+{% extends "base.html" %}
+
+{% block title %}Outlet Car - Marcas{% endblock %}
+
+{% block content %}
+    <main class="contenedorLista">
+        <h2 class="titulo">Marcas Disponibles</h2>
+
+        {% if marcas %}
+            <ul class="lista">
                 {% for marc in marcas %}
-                    <li>
-                        <a href="{% url 'verMarca' marc.id%}">{{marc}}</a>
+                    <li class="elemento">
+                        <p class="nombre">
+                            {{marc}}
+                        </p>
+                        
+                        <a href="{% url 'verMarca' marc.id %}" class="btn verDetalle">
+                            Ver Detalle
+                        </a>
                     </li>
                 {% endfor %}
             </ul>
-        </div>
-    </body>
-</html>
+        {% endif %}
+    </main>
+
+{% endblock content %}
