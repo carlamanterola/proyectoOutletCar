@@ -11,10 +11,12 @@ def index_ofertas(request):
     return render(request, 'lista_ofertas.html', context)
 
 # Devuelve los detalles de una oferta en concreto según ID
-def ver_oferta(request, idCoche):
-    coche = get_object_or_404(Coche, pk=idCoche)
-    context = {'coche': coche}
+def ver_oferta(request, idOferta):
+    oferta = get_object_or_404(Oferta, pk=idOferta)
+    coche = oferta.oferta
+    context = {'oferta': oferta, 'coche': coche}
     return render(request, 'detalle_oferta.html', context)
+
 
 #Visualizar la lista de marcas
 def visualizar_marcas(request):
