@@ -35,6 +35,8 @@ class Coche(models.Model):
     modelo = models.CharField(max_length = 50)
     anio = models.IntegerField()
     km = models.IntegerField()
+    foto = models.ImageField(upload_to='fotos_coches/', null=True, blank=True)
+
 
     def __str__(self):
         return f"{self.matricula} - {self.modelo}"
