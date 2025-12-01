@@ -38,4 +38,16 @@
         {% endfor %}
     </tbody>
 </table>
+{% for coche in coches %}
+    {% if coche.matricula == "3406 GNV" %}
+        <h2>{{ coche.matricula }} - {{ coche.modelo }}</h2>
+
+        {% if coche.foto %}
+            <img src="{{ coche.foto.url }}" alt="Foto de {{ coche.modelo }}" style="width:300px; border-radius:10px;">
+        {% else %}
+            <p>Sin foto disponible</p>
+        {% endif %}
+    {% endif %}
+{% endfor %}
+
 {% endblock content %}

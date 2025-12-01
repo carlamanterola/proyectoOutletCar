@@ -4,6 +4,13 @@ from .models import Marca, Categoria, Oferta, Coche
 
 
 
+
+def index(request):
+    coche = get_object_or_404(Coche, matricula="3406 GNV")
+    return render(request, 'index.html', {'coche': coche})
+
+
+
 # Devuelve una lista de ofertas
 def index_ofertas(request):
     ofertas = get_list_or_404(Oferta)
@@ -58,3 +65,6 @@ def index(request):
             coches_por_marca.append(coche_mas_barato)
 
     return render(request, 'index.html', {'coches': coches_por_marca})
+
+
+
