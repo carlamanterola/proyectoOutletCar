@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %} Outlet Car - Formulario {% endblock %}
+
+{% block content %}
+
+<div class="containerGen">
+    <h2 class="titulo">Formulario de Coche</h2>
+    
+    <form method="POST" action="{% url 'procesar_form' %}">
+        {% csrf_token %}
+
+        <ul class="listaForm">
+            {{form.as_ul}}
+        </ul>
+
+        <input type="submit" class="botonEnviar" value="Enviar">
+    </form>
+</div>
+
+{% endblock %}
