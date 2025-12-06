@@ -26,15 +26,15 @@ class Oferta(models.Model):
         return f"{self.precio} €"
 
 class Coche(models.Model):
-    matricula = models.CharField(max_length = 8)
+    matricula = models.CharField(max_length = 8, unique = True)
     idMarca = models.ForeignKey(Marca, on_delete = models.CASCADE, related_name ='marca')
     idCombustible = models.ForeignKey(Combustible, on_delete = models.CASCADE, related_name ='combustible')
-    idPrecio = models.OneToOneField(Oferta, on_delete = models.SET_NULL, null=True, blank = True, related_name ='oferta')
+    idPrecio = models.ForeignKey(Oferta, on_delete = models.SET_NULL, related_name ='oferta')
     idCat = models.ManyToManyField(Categoria, related_name ='categoria')
     
     modelo = models.CharField(max_length = 50)
     anio = models.IntegerField()
-    km = models.IntegerField()
+    km = models.IntegerField(null = True, blank = True)
     foto = models.ImageField(upload_to='fotos_coches/', null=True, blank=True)
 
 
