@@ -2,6 +2,7 @@ from django.urls import path
 from . import views, views_forms
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf import settings
 
 
 urlpatterns = [
@@ -13,5 +14,6 @@ urlpatterns = [
     path('categorias/', views.lista_categorias, name='lista_categorias'),
     path('categorias/<int:idCat>/', views.detalle_categoria, name='detalle_categoria'),
     path('ofertas/formulario/', views_forms.procesar_form_coche , name='procesar_form'),
-]
+    
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

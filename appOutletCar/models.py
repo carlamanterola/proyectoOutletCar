@@ -29,7 +29,7 @@ class Coche(models.Model):
     matricula = models.CharField(max_length = 8, unique = True)
     idMarca = models.ForeignKey(Marca, on_delete = models.CASCADE, related_name ='marca')
     idCombustible = models.ForeignKey(Combustible, on_delete = models.CASCADE, related_name ='combustible')
-    idPrecio = models.ForeignKey(Oferta, on_delete = models.SET_NULL, related_name ='oferta')
+    idPrecio = models.ForeignKey(Oferta, on_delete = models.SET_NULL, null = True, related_name ='oferta')
     idCat = models.ManyToManyField(Categoria, related_name ='categoria')
     
     modelo = models.CharField(max_length = 50)
