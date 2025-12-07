@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
+
 
 class Marca(models.Model):
     nomMarca = models.CharField(max_length = 50)
@@ -39,3 +41,13 @@ class Coche(models.Model):
 
     def __str__(self):
         return f"{self.matricula} - {self.modelo}"
+    
+class Favorito(models.Model):
+    usuario = models.ForeignKey(User, on_delete= models.CASCADE)
+    coche = models.ForeignKey(Coche, on_delete= models.CASCADE)
+
+    class Meta:
+        unique_together = ('usuario', 'coche') # UN USUARIO NO PUEDE GUARDAR UN COCHE DOS VECES
+
+    def __str__(self):
+        return f"{self.usuario} - {self.coche}" 

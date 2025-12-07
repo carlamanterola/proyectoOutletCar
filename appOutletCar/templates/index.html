@@ -21,7 +21,11 @@
     <tbody>
         {% for coche in coches %}
         <tr>
-            <td>{{ coche.idMarca.nombre|default:coche.idMarca }}</td>
+            <td>
+                <a href="{%url 'verMarca' coche.idMarca.id%}">
+                    {{ coche.idMarca.nombre|default:coche.idMarca }}
+                </a>
+            </td>
 
             <td>
                 <a href="{% url 'ver_oferta' coche.idPrecio.id %}">

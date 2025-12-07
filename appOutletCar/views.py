@@ -1,15 +1,13 @@
 from django.shortcuts import render, get_object_or_404, get_list_or_404
-from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required, user_passes_test
 from .models import Marca, Categoria, Oferta, Coche
 
 
 
-
+###### VIEWS ACCESIBLES PARA TODOS ######
 def index(request):
     coche = get_object_or_404(Coche, matricula="3406 GNV")
     return render(request, 'index.html', {'coche': coche})
-
-
 
 # Devuelve una lista de ofertas
 def index_ofertas(request):
@@ -30,7 +28,6 @@ def visualizar_marcas(request):
     marcas = get_list_or_404(Marca)
     context = {"marcas": marcas}
     return render(request, "lista_marcas.html", context)
-
 
 #Visualizar los coches de una marca en concreto segun ID
 def ver_marca(request, idMarca):
