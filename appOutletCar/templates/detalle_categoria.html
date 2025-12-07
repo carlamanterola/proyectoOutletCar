@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Outlet Car - Categorias{% endblock %}
+{% block title %}Outlet Car - Detalle Categoría{% endblock %}
 
 {% block content %}
     <main class="contenedor">
@@ -9,18 +9,30 @@
         {% if coches %}
             <div class="contenedorCoche">
                 {% for coche in coches %}
-                    <div class="cocheDetalle">
-                        <h3>{{ coche.modelo }}</h3>
-                        <p><strong>Marca:</strong> {{coche.idMarca.nomMarca}}</p>
-                        <p><strong>Año:</strong> {{coche.anio}}</p>
-                        <p><strong>Kilómetros:</strong> {{coche.km}} km</p>
-                        <p><strong>Tipo de combustible:</strong> {{coche.idCombustible.nomCombustible}}</p>
-                        <p><strong>Precio:</strong> {{coche.idPrecio.precio}}€</p>
+                    <div class="cocheDetalle">                        
+                        {% if coche.foto %}
+                            <div class="foto">
+                                <img src="{{ coche.foto.url }}">
+                            </div>
+                        {% endif %}
+
+                        <div class="infoCoche">
+                            <h3>{{ coche.modelo }}</h3>
+                            
+                            <p><strong>Marca:</strong> 
+                                <a href="{% url 'verMarca' coche.idMarca.pk %}" class="llevarMarca">
+                                    {{ coche.idMarca.nomMarca }}
+                                </a>
+                            </p>
+
+                            <p><strong>Año:</strong> {{coche.anio}}</p>
+                            <p><strong>Kilómetros:</strong> {{coche.km}} km</p>
+                            <p><strong>Tipo:</strong> {{coche.idCombustible.nomCombustible}}</p>
+                            <p><strong>Precio:</strong> {{coche.idPrecio.precio}}€</p>
                         </div>
+                    </div>
                 {% endfor %}
             </div>
         {% endif %}
-
     </main>
-
 {% endblock content %}

@@ -10,11 +10,18 @@
             <div class="contenedorCoche">
                 {% for coche in coches %}
                     <div class="cocheDetalle">
-                        <h3>{{coche.modelo}}</h3>
-                        <p><strong>Año: </strong>{{coche.anio}}</p>
-                        <p><strong>Kilometros: </strong>{{coche.km}}km</p>
-                        <p><strong>Tipo de combustible: </strong>{{coche.idCombustible}}</p>
-                        <p><strong>Precio: </strong>{{coche.idPrecio}}</p>
+                        {% if coche.foto %}
+                            <div class="foto">
+                                <img src="{{ coche.foto.url }}">
+                            </div>
+                        {% endif %}
+                        <div class="infoCoche">
+                            <h3>{{coche.modelo}}</h3>
+                            <p><strong>Año: </strong>{{coche.anio}}</p>
+                            <p><strong>Kilometros: </strong>{{coche.km}}km</p>
+                            <p><strong>Tipo de combustible: </strong>{{coche.idCombustible}}</p>
+                            <p><strong>Precio: </strong>{{coche.idPrecio}}</p>
+                        </div>
                     </div>
                 {% endfor %}
             </div>
