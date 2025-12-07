@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.contrib.auth.decorators import login_required, user_passes_test
-from .models import Marca, Categoria, Oferta, Coche
+from .models import Marca, Categoria, Oferta, Coche, Combustible
 
 
 
@@ -63,5 +63,7 @@ def index(request):
 
     return render(request, 'index.html', {'coches': coches_por_marca})
 
-
-
+def combustible(request, idCombustible):
+    combustible = get_object_or_404(Combustible, pk=idCombustible)
+    coches = Coche.objects.filter(idCombustible=combustible)
+    return render(request, 'detalle_combustible.html', {'combustible': combustible, 'coches': coches})

@@ -27,7 +27,12 @@
 
                             <p><strong>Año:</strong> {{coche.anio}}</p>
                             <p><strong>Kilómetros:</strong> {{coche.km}} km</p>
-                            <p><strong>Tipo:</strong> {{coche.idCombustible.nomCombustible}}</p>
+                            <p>
+                                <strong>Tipo:</strong> 
+                                <a href="{% url 'detalle_combustible' coche.idCombustible.pk %}" class="llevarCombustible">
+                                    {{ coche.idCombustible.nomCombustible }}
+                                </a>
+                            </p>
                             <p><strong>Precio:</strong> {{coche.idPrecio.precio}}€</p>
                         </div>
                     </div>

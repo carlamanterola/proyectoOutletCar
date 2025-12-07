@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Coches - {{ combustible.nomCombustible }}{% endblock %}
+
+{% block content %}
+    <main class="contenedor">
+        <h2 class="titulo">Coches con combustible: {{ combustible.nomCombustible }}</h2>
+        
+        <div class="contenedorCoche">
+            {% for coche in coches %}
+                <div class="cocheDetalle">
+                    {% if coche.foto %}
+                        <div class="foto">
+                            <img src="{{ coche.foto.url }}" alt="{{ coche.modelo }}">
+                        </div>
+                    {% endif %}
+
+                    <div class="infoCoche">
+                        <h3>{{ coche.modelo }}</h3>
+                        <p><strong>Marca:</strong> {{ coche.idMarca.nomMarca }}</p>
+                        <p><strong>Año:</strong> {{ coche.anio }}</p>
+                        <p><strong>Kilómetros:</strong> {{ coche.km }} km</p>
+                        <p><strong>Precio:</strong> {{ coche.idPrecio.precio }}€</p>
+                    </div>
+                </div>
+            {% empty %}
+                <p>No se encontraron coches para este tipo de combustible.</p>
+            {% endfor %}
+        </div>
+
+    </main>
+{% endblock %}
