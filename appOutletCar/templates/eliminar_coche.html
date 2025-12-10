@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %} Confirmar Eliminación {% endblock %}
+
+{% block content %}
+
+<div class="contenedorEliminacion">
+    <h2 class="titulo">⚠️ Confirmar Eliminación</h2>
+    
+    <p>¿Estás seguro de que deseas eliminar el coche **"{{ object.idMarca }} {{ object.modelo }}"**?</p>
+    
+    <form method="POST">
+        {% csrf_token %}
+        
+        <input type="submit" class="enviar" value="Sí, Eliminar Permanentemente">
+        
+        <a href="{% url 'index' %}" class="cancelar">Cancelar y Volver</a>
+    </form>
+</div>
+
+{% endblock %}

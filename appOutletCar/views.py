@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, get_list_or_404
+from django.shortcuts import render, get_object_or_404, get_list_or_404, redirect, reverse
 from django.contrib.auth.decorators import login_required, user_passes_test
 from .models import Marca, Categoria, Oferta, Coche, Combustible
 
@@ -67,3 +67,16 @@ def combustible(request, idCombustible):
     combustible = get_object_or_404(Combustible, pk=idCombustible)
     coches = Coche.objects.filter(idCombustible=combustible)
     return render(request, 'detalle_combustible.html', {'combustible': combustible, 'coches': coches})
+
+
+def eliminar_coche(request, pk):
+    coche = get_object_or_404(Coche, pk=pk)
+
+    if request.method == 'POST':
+        coche.delete()        
+        return redirect(reverse('index')) 
+
+    context = {
+        'object': coche,
+    }
+    return render(request, 'eliminar_coche.html', context)

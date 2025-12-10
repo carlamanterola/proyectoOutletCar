@@ -15,5 +15,6 @@ urlpatterns = [
     path('categorias/<int:idCat>/', views.detalle_categoria, name='detalle_categoria'),
     path('ofertas/formulario/', views_forms.procesar_form_coche , name='procesar_form'),
     path('combustible/<int:idCombustible>/', views.combustible, name='detalle_combustible'),
+    path('coche/eliminar/<int:pk>/', views.eliminar_coche, name='eliminar_coche'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
