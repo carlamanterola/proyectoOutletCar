@@ -303,3 +303,9 @@ p.nombre {
 .llevarMarca {
     color: #000000;
 }
+.centrar_login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}

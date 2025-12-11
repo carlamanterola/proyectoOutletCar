@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 class="titulo-login">Iniciar sesión como</h1>
+
+<div >
+
+    <div>
+        <a href="{% url 'login' %}?tipo=staff">Staff</a>
+    </div>
+
+    <div>
+        <a href="{% url 'login' %}?tipo=cliente">Cliente</a>
+    </div>
+
+</div>
+
+{% endblock %}

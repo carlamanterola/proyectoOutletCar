@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, get_list_or_404, redirect, reverse
 from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib.auth import authenticate, login
 from .models import Marca, Categoria, Oferta, Coche, Combustible
 
 
@@ -80,3 +81,39 @@ def eliminar_coche(request, pk):
         'object': coche,
     }
     return render(request, 'eliminar_coche.html', context)
+
+def selector_login(request):
+    return render(request, "seleccion_login.html")
+
+def login_view(request):
+    tipo = request.GET.get("tipo", "cliente")  # "staff" o "cliente"
+
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+
+            # Si intenta entrar como STAFF pero NO es staff
+            if tipo == "staff" and not user.is_staff:
+                return render(request, "login.html", {
+                    "error": "No tienes permisos de staff.",
+                    "tipo": tipo
+                })
+
+            # Login correcto
+            login(request, user)
+
+            # Redirecciones (luego las tuneamos)
+            return redirect("index")
+
+        # Credenciales incorrectas
+        return render(request, "login.html", {
+            "error": "Usuario o contraseña incorrectos",
+            "tipo": tipo
+        })
+
+    # GET → mostrar login
+    return render(request, "login.html", {"tipo": tipo})
