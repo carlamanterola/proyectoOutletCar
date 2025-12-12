@@ -17,10 +17,27 @@
                         {% endif %}
                         <div class="infoCoche">
                             <h3>{{coche.modelo}}</h3>
+                            <ul>
+                                {% for cat in coche.idCat.all %}
+                                    <li><a href="{%url 'detalle_categoria' cat.pk %}">{{cat.nomCat}}</a></li>
+                                {% empty %}
+                                    <li>Sin categorías.</li>
+                                {% endfor %}
+                            </ul>
                             <p><strong>Año: </strong>{{coche.anio}}</p>
                             <p><strong>Kilometros: </strong>{{coche.km}}km</p>
-                            <p><strong>Tipo de combustible: </strong>{{coche.idCombustible}}</p>
+                            <p>
+                                <strong>Tipo:</strong> 
+                                <a href="{% url 'detalle_combustible' coche.idCombustible.pk %}" class="llevarCombustible">
+                                    {{ coche.idCombustible.nomCombustible }}
+                                </a>
+                            </p>
                             <p><strong>Precio: </strong>{{coche.idPrecio}}</p>
+                            {% if user.is_authenticated %}
+                                <a href="{% url 'eliminar_coche' pk=coche.pk %}" class="btn-eliminar">
+                                    Eliminar
+                                </a>
+                            {% endif %}  
                         </div>
                     </div>
                 {% endfor %}
