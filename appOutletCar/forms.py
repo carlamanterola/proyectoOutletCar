@@ -4,7 +4,7 @@ from .models import Coche, Oferta, Categoria
 class OutlerCarModelForm(forms.ModelForm):
     class Meta:
         model = Coche
-        fields = ['matricula', 'idMarca','modelo', 'anio', 'idPrecio', 'idCombustible', 'idCat', 'foto']
+        fields = ['matricula', 'idMarca','modelo', 'anio', 'km', 'idCombustible', 'idCat', 'foto']
 
 
         
