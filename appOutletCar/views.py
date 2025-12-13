@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404, get_list_or_404, redirec
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from .models import Marca, Categoria, Oferta, Coche, Combustible, Favorito
+from django.contrib.admin.views.decorators import staff_member_required
+
 
 
 
@@ -82,7 +84,7 @@ def combustible(request, idCombustible):
     coches = Coche.objects.filter(idCombustible=combustible)
     return render(request, 'detalle_combustible.html', {'combustible': combustible, 'coches': coches})
 
-
+@staff_member_required
 def eliminar_coche(request, pk):
     coche = get_object_or_404(Coche, pk=pk)
 
