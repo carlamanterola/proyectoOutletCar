@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 fila.innerHTML = `
                     <td>${coche.marca_nombre}</td>
+                    <td>${coche.modelo}</td>
                     <td>${fotoHTML}</td>
                     <td>${coche.precio} €</td>
                 `;

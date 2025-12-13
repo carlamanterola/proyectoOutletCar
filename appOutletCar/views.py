@@ -80,6 +80,7 @@ def coches_mas_baratos_json(request):
             resultado.append({
                 "marca_id": marca.id,
                 "marca_nombre": marca.nomMarca,
+                "modelo": coche.modelo, 
                 "precio": coche.idPrecio.precio,
                 "oferta_id": coche.idPrecio.id,
                 "foto": coche.foto.url if coche.foto else None,
