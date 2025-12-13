@@ -1,34 +1,30 @@
 {% extends "base.html" %}
 {% load static %}
-
+{% block title %}Outlet Car - Login {% endblock %}
 {% block content %}
 
 <link rel="stylesheet" href="{% static 'css/login.css' %}">
 
-<div >
+<div class="login_base">
+    <div class="login_container">
+        <h1>Iniciar sesión</h1>
 
-    {% if tipo == "staff" %}
-        <h1>Iniciar sesión como STAFF</h1>
-    {% else %}
-        <h1>Iniciar sesión como CLIENTE</h1>
-    {% endif %}
-<div class="centrar_login">
-    <form method="POST" >
-        {% csrf_token %}
+        <form method="POST" class="login_form">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Usuario" required>
+            <input type="password" name="password" placeholder="Contraseña" required>
+            <button type="submit">Entrar</button>
+        </form>
 
-        <input type="text" name="username" placeholder="Usuario" required>
-
-        <input type="password" name="password" placeholder="Contraseña" required>
-
-        <button type="submit">Entrar</button>
-    </form>
-</div>
-    {% if error %}
-        <p class="login-error">{{ error }}</p>
-    {% endif %}
-
-    <a href="{% url 'selector_login' %}">Volver</a>
-
+        {% if error %}
+            <p class="login_error">{{ error }}</p>
+            <script>
+                 alert("{{ error }}");
+            </script>
+        {% endif %}
+       
+        <a href="{% url 'index' %}" class="login_volver"> Volver al inicio</a>
+    </div>
 </div>
 
 {% endblock %}

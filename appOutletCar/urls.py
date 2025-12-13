@@ -20,7 +20,6 @@ urlpatterns = [
     path('combustible/<int:idCombustible>/', views.combustible, name='detalle_combustible'),
     path('coche/eliminar/<int:pk>/', views.eliminar_coche, name='eliminar_coche'),
     path('login/', views.login_view, name='login'),
-    path('login/rol/', views.selector_login, name='selector_login'),
     path('logout/', auth_views.LogoutView.as_view(next_page='index'), name='logout'),
     
     path("favoritos/agregar/<int:coche_id>/", views.agregar_favorito, name="agregar_favorito"),

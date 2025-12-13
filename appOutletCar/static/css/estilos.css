@@ -303,9 +303,16 @@ p.nombre {
 .llevarMarca {
     color: #000000;
 }
-.centrar_login {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80vh;
+
+.botonCerrarSesion {
+    background: none;
+    border: none;
+    color: #73a5ff;  
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0;
+    font-family: inherit;
+}
+.botonCerrarSesion:hover {
+    text-decoration: underline;
 }

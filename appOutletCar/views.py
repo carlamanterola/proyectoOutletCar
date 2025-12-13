@@ -97,12 +97,8 @@ def eliminar_coche(request, pk):
     }
     return render(request, 'eliminar_coche.html', context)
 
-def selector_login(request):
-    return render(request, "seleccion_login.html")
 
 def login_view(request):
-    tipo = request.GET.get("tipo", "cliente")  # "staff" o "cliente"
-
     if request.method == "POST":
         username = request.POST.get("username")
         password = request.POST.get("password")
@@ -110,25 +106,13 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
 
         if user is not None:
-
-            # Si intenta entrar como STAFF pero NO es staff
-            if tipo == "staff" and not user.is_staff:
-                return render(request, "login.html", {
-                    "error": "No tienes permisos de staff.",
-                    "tipo": tipo
-                })
-
-            # Login correcto
             login(request, user)
-
-            # Redirecciones (luego las tuneamos)
             return redirect("index")
 
-        # Credenciales incorrectas
         return render(request, "login.html", {
-            "error": "Usuario o contraseña incorrectos",
-            "tipo": tipo
+            "error": "Usuario o contraseña incorrectos"
         })
 
-    # GET → mostrar login
-    return render(request, "login.html", {"tipo": tipo})
+    return render(request, "login.html")
+
+    
