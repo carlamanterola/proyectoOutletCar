@@ -1,57 +1,28 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}Outlet Car - Inicio{% endblock %}
 
 {% block content %}
 
-<div  class="tituloinicio">
+<div class="tituloinicio">
     <h1>Coche más barato por cada marca</h1>
 </div>
 
-
-<table>
+<table id="tabla-coches"
+       data-url="{% url 'coches_mas_baratos_json' %}">
     <thead>
         <tr>
             <th>Marca</th>
-            <th>Modelo</th>
+            <th>foto</th>
             <th>Precio (€)</th>
         </tr>
     </thead>
-
-    <tbody>
-        {% for coche in coches %}
-        <tr>
-            <td>
-                <a href="{%url 'verMarca' coche.idMarca.id%}">
-                    {{ coche.idMarca.nombre|default:coche.idMarca }}
-                </a>
-            </td>
-
-            <td>
-                <a href="{% url 'ver_oferta' coche.idPrecio.id %}">
-                    {{ coche.modelo }}
-                </a>
-            </td>
-
-            <td>{{ coche.idPrecio.precio }}€</td>
-        </tr>
-        {% empty %}
-        <tr>
-            <td colspan="3">No hay coches disponibles</td>
-        </tr>
-        {% endfor %}
-    </tbody>
+    <tbody></tbody>
 </table>
-{% for coche in coches %}
-    {% if coche.matricula == "3406 GNV" %}
-        <h2>{{ coche.matricula }} - {{ coche.modelo }}</h2>
 
-        {% if coche.foto %}
-            <img src="{{ coche.foto.url }}" alt="Foto de {{ coche.modelo }}" style="width:300px; border-radius:10px;">
-        {% else %}
-            <p>Sin foto disponible</p>
-        {% endif %}
-    {% endif %}
-{% endfor %}
+<script src="{% static 'js/outlercar.js' %}"></script>
+
+
 
 {% endblock content %}

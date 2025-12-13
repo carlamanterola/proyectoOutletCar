@@ -3,14 +3,12 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from .models import Marca, Categoria, Oferta, Coche, Combustible, Favorito
 from django.contrib.admin.views.decorators import staff_member_required
-
+from django.http import JsonResponse
 
 
 
 ###### VIEWS ACCESIBLES PARA TODOS ######
-def index(request):
-    coche = get_object_or_404(Coche, matricula="3406 GNV")
-    return render(request, 'index.html', {'coche': coche})
+
 
 # Devuelve una lista de ofertas
 def index_ofertas(request):
@@ -66,18 +64,29 @@ def detalle_categoria(request, idCat):
     context = {'categoria': categoria, 'coches': coches}
     return render(request, 'detalle_categoria.html', context)
 
-# Página principal que muestra el coche más barato por cada marca
+
 def index(request):
+    return render(request, 'index.html')
+
+def coches_mas_baratos_json(request):
     marcas = Marca.objects.all()
-    coches_por_marca = [] 
+    resultado = []
 
     for marca in marcas:
         coches = Coche.objects.filter(idMarca=marca, idPrecio__isnull=False)
         if coches.exists():
-            coche_mas_barato = coches.order_by('idPrecio__precio').first()
-            coches_por_marca.append(coche_mas_barato)
+            coche = coches.order_by('idPrecio__precio').first()
 
-    return render(request, 'index.html', {'coches': coches_por_marca})
+            resultado.append({
+                "marca_id": marca.id,
+                "marca_nombre": marca.nomMarca,
+                "precio": coche.idPrecio.precio,
+                "oferta_id": coche.idPrecio.id,
+                "foto": coche.foto.url if coche.foto else None,
+            })
+
+    return JsonResponse(resultado, safe=False)
+
 
 def combustible(request, idCombustible):
     combustible = get_object_or_404(Combustible, pk=idCombustible)

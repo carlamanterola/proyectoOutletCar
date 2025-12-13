@@ -24,6 +24,6 @@ urlpatterns = [
     
     path("favoritos/agregar/<int:coche_id>/", views.agregar_favorito, name="agregar_favorito"),
     path("favoritos/", views.lista_favoritos, name="lista_favoritos"),
-
+    path('coches-mas-baratos/', views.coches_mas_baratos_json, name='coches_mas_baratos_json'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
