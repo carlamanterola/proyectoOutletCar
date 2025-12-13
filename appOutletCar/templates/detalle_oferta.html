@@ -26,4 +26,12 @@
     {% else %}
         <p>No hay ningún coche asociado a esta oferta.</p>
     {% endif %}
+
+    {% if user.is_authenticated %}
+        <a href="{% url 'agregar_favorito' coche.id %}" class="btn btn-primary">
+            Guardar en favoritos
+        </a>
+    {% else %}
+        <a href="{% url 'login' %}">Inicia sesión para guardar favoritos</a>
+    {% endif %}
 {% endblock content %}

@@ -22,7 +22,9 @@ urlpatterns = [
     path('login/', views.login_view, name='login'),
     path('login/rol/', views.selector_login, name='selector_login'),
     path('logout/', auth_views.LogoutView.as_view(next_page='index'), name='logout'),
-
+    
+    path("favoritos/agregar/<int:coche_id>/", views.agregar_favorito, name="agregar_favorito"),
+    path("favoritos/", views.lista_favoritos, name="lista_favoritos"),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

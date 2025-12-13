@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Outlet Car - Ofertas{% endblock %}
+
+{% block content %}
+    <h1>Mis coches favoritos</h1>
+
+    <ul>
+        {% for fav in favoritos %}
+            <li>
+                {{ fav.coche.idMarca.nomMarca }} {{ fav.coche.modelo }}  
+                - {{ fav.coche.anio }}  
+                - {{ fav.coche.km }} km  
+                - {{ fav.coche.idPrecio.precio }} €
+
+                <a href="{% url 'ver_oferta' fav.coche.id %}">Ver detalle</a>
+            </li>
+        {% empty %}
+            <li>No tienes coches favoritos aún.</li>
+        {% endfor %}
+        
+    </ul>
+{% endblock content %}

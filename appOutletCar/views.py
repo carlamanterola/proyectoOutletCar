@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, get_list_or_404, redirect, reverse
-from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
-from .models import Marca, Categoria, Oferta, Coche, Combustible
+from .models import Marca, Categoria, Oferta, Coche, Combustible, Favorito
 
 
 
@@ -22,6 +22,19 @@ def ver_oferta(request, idOferta):
     coche = oferta.oferta
     context = {'oferta': oferta, 'coche': coche}
     return render(request, 'detalle_oferta.html', context)
+
+
+####################### TEMPORAL, PROBABLEMENTE SE CAMBIE
+@login_required
+def agregar_favorito(request, coche_id):
+    coche = get_object_or_404(Coche, id=coche_id)
+    Favorito.objects.get_or_create(usuario=request.user, coche=coche)
+    return redirect(request.META.get("HTTP_REFERER", "lista_favoritos"))
+
+@login_required
+def lista_favoritos(request):
+    favoritos = Favorito.objects.filter(usuario=request.user).select_related("coche")
+    return render(request, "lista_favoritos.html", {"favoritos": favoritos})
 
 
 #Visualizar la lista de marcas

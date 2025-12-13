@@ -29,22 +29,25 @@
                     <li><a href={% url 'lista_ofertas' %}>Nuestras Ofertas</a></li>
                     <li><a href={% url 'visualizar_marcas' %}>Las Marcas</a></li>
                     <li><a href={% url 'lista_categorias' %}>Categorías</a></li>
-                    <li><a href={% url 'procesar_form' %}>Formulario</a></li>
+                    {% if user.is_staff %}
+                        <li><a href={% url 'procesar_form' %}>Formulario</a></li>
+                    {% endif %}
 
-                 {% if user.is_authenticated %}
 
-                      {% if user.is_staff %}
+                {% if user.is_authenticated %}
+
+                    {% if user.is_staff %}
                             <li>Hola trabajador, {{ user.username }}</li>
-                      {% else %}
+                    {% else %}
                             <li>Hola, {{ user.username }}</li>
-                      {% endif %}
+                    {% endif %}
 
-                     <li>
+                    <li>
                         <form method="POST" action="{% url 'logout' %}" style="display:inline;">
                         {% csrf_token %}
-                         <button type="submit" style="background:none;border:none;color:white;cursor:pointer;">
-                             Cerrar sesión
-                         </button>
+                        <button type="submit" style="background:none;border:none;color:white;cursor:pointer;">
+                            Cerrar sesión
+                        </button>
                         </form>
                     </li>
 
