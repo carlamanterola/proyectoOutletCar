@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}Outlet Car - Marcas{% endblock %}
 
@@ -22,3 +23,7 @@
     </main>
 
 {% endblock content %}
+
+{% block scripts %}
+    <script src="{% static 'js/lista_marcas.js' %}"></script>
+{% endblock %}

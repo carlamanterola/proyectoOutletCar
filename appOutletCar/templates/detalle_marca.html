@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}Outlet Car - Marcas{% endblock %}
 
@@ -6,6 +7,8 @@
     <main class="contenedor">
         <h2 class="titulo">Detalle de Marca: {{ marca }}</h2>
 
+        Maximo de kms: <input type="number" id="filtroKm" placeholder="71700" class="filtro-km">
+        
         {% if coches %}
             <div class="contenedorCoche">
                 {% for coche in coches %}
@@ -46,3 +49,7 @@
     </main>
 
 {% endblock content %}
+
+{% block scripts %}
+    <script src="{% static 'js/detalle_marca.js' %}"></script>
+{% endblock %}
