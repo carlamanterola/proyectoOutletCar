@@ -155,14 +155,9 @@ td {
 }
 
 
-tr:last-child td {
-    border-bottom: none;
-}
-
 
 tbody tr:hover {
     background-color: #f5f7fa;
-    transition: background-color 0.2s ease;
 }
 
 
@@ -517,4 +512,18 @@ body.fade-out {
     height: 5px;
     background-color:#0A2A43;
     padding:25px; ;
+}
+.volverArriba {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.volverArriba a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #333;
+}
+
+.volverArriba a:hover {
+    text-decoration: underline;
 }

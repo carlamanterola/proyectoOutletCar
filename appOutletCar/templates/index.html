@@ -11,9 +11,11 @@
 
     <div class="cocheContenido">
 
-        <a href="{% url 'ver_oferta' cocheAleatorio.id %}">
-            <img src="{{ cocheAleatorio.foto.url }}" alt="Coche aleatorio">
-        </a>
+      <a href="{% url 'verMarca' cocheAleatorio.idMarca.id %}">
+        <img src="{{ cocheAleatorio.foto.url }}" alt="Coche aleatorio">
+      </a>
+
+    
 
         <p class="nombreCoche">
             {{ cocheAleatorio.idMarca }} {{ cocheAleatorio.modelo }}
@@ -55,7 +57,6 @@
     <tbody></tbody>
 </table>
 
-<script src="{% static 'js/outlercar.js' %}"></script>
 
 <section class="quienesSomos">
     <div class="qsTexto">
@@ -74,10 +75,19 @@
     <div class="qsImagen">
         <img src="{% static 'images/logo.png' %}" alt="logo de la empresa">
     </div>
+
+  
 </section>
+<section>
+    <div class="volverArriba">
+        <a href="#arriba"> Volver arriba</a>
+    </div>
+</section>
+  
 
 
 {% endblock content %}
+
 {% block scripts %}
 <script src="{% static 'js/outlercar.js' %}"></script>
 {% endblock %}
