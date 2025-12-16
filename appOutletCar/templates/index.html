@@ -21,11 +21,11 @@
             {{ cocheAleatorio.idMarca }} {{ cocheAleatorio.modelo }}
         </p>
 
-        <form method="GET">
+        <form method="GET" action="{% url 'index' %}">
             <button type="submit" name="random" value="1">
                 Siguiente coche
             </button>
-        </form>
+        </form> 
 
     </div>
 
