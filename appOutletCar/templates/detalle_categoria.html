@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}Outlet Car - Detalle Categoría{% endblock %}
 
@@ -6,6 +7,11 @@
     <main class="contenedor">
         <h2 class="titulo">Detalle de Categoría: {{categoria.nomCat}}</h2>
         
+        <div class="filtroKmContainer">
+            <label for="filtroKm">Maximo de kms:</label>
+            <input type="number" id="filtroKm" placeholder="71700" class="filtroKm">
+        </div>
+
         {% if coches %}
             <div class="contenedorCoche">
                 {% for coche in coches %}
@@ -45,5 +51,11 @@
                 {% endfor %}
             </div>
         {% endif %}
+
+        <a href="{% url 'lista_categorias' %}" class="btn-volver"> <-- Volver</a>
     </main>
 {% endblock content %}
+
+{% block scripts %}
+    <script src="{% static 'js/detalle_marca.js' %}"></script>
+{% endblock %}
