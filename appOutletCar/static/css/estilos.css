@@ -361,6 +361,23 @@ body {
 body.fade-out {
     opacity: 0;
 }
+.filtroKmContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.filtroKmContainer label{
+    font-size: medium;
+    font-weight: bold;
+}
+.filtroKmContainer input{
+    text-align: center;
+    width: 140px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
 
 .btn-eliminar {
     background-color: #dc3545;

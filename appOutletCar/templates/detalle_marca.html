@@ -7,7 +7,10 @@
     <main class="contenedor">
         <h2 class="titulo">Detalle de Marca: {{ marca }}</h2>
 
-        Maximo de kms: <input type="number" id="filtroKm" placeholder="71700" class="filtro-km">
+        <div class="filtroKmContainer">
+            <label for="filtroKm">Maximo de kms:</label>
+            <input type="number" id="filtroKm" placeholder="71700" class="filtroKm">
+        </div>
         
         {% if coches %}
             <div class="contenedorCoche">
@@ -20,8 +23,6 @@
                         {% endif %}
                         <div class="infoCoche">
                             <h3>{{coche.modelo}}</h3>
-
-                            <p><strong>Lista de Categorías: </strong></p>
                             <ul>
                                 {% for cat in coche.idCat.all %}
                                     <li><a href="{%url 'detalle_categoria' cat.pk %}">{{cat.nomCat}}</a></li>

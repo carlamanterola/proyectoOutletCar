@@ -1,21 +1,10 @@
 //para desvanecer la pagina despacio
-document.querySelectorAll('.btn-verDetalle').forEach(boton => {
-    boton.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        document.body.classList.add('fade-out');
-
-        setTimeout(() => {
-            window.location.href = this.href;
-        }, 400);
-    });
-});
 
 document.querySelectorAll('.btn-eliminar').forEach(btn => {
     btn.addEventListener('click', function (e) {
         e.preventDefault();
 
-        if (!confirm('¿Quieres ver los detalles de esta marca?')) {
+        if (!confirm('¿Quieres eliminar este coche?')) {
             e.preventDefault();
         }
     });
