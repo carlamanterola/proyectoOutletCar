@@ -45,3 +45,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 </tr>`;
         });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const params = new URLSearchParams(window.location.search);
+
+    if (params.has("random")) {
+        const cocheAleatorio = document.getElementById("cocheAleatorio");
+        if (cocheAleatorio) {
+            cocheAleatorio.scrollIntoView({ behavior: "smooth" });
+        }
+    }
+});

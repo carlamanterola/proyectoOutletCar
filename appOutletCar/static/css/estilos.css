@@ -111,24 +111,67 @@ a {
     text-decoration: none;
     color: #007BFF;
 }
+.tituloDelIndex {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #000;
+    background: #f5f7fa; 
+}
+.descripcion{
+    max-width: 900px;
+    margin: 15px auto 35px auto;
+    font-size: 15px;
+    color: #555;
+    text-align: center;
+    line-height: 1.7;
+}
 
-th{
-    padding: 16px;
-    width: 5%;
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 30px auto;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+th {
+    padding: 14px 12px;
     text-align: center;
     background-color: #0A2A43;
     color: white;
-    border: 1px solid black;
-
+    font-weight: 600;
+    font-size: 14px;
 }
+
 
 td {
-    padding:  12px;
+    padding: 12px 10px;
     text-align: center;
-    background-color: white;
-    border: 1px solid black;
-    
+    font-size: 14px;
+    color: #3C4044;
+    border-bottom: 1px solid #e6e6e6;
 }
+
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+
+tbody tr:hover {
+    background-color: #f5f7fa;
+    transition: background-color 0.2s ease;
+}
+
+
+td img {
+    width: 120px;
+    height: auto;
+    border-radius: 8px;
+}
+
 
 td a{
     color: black;
@@ -385,4 +428,93 @@ body.fade-out {
 
 .llevarCombustible {
     color: #000000;
+}
+.quienesSomos {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 50px;
+    align-items: center;
+    margin: 80px auto;
+    padding: 60px;
+    background-color: #f7f9fb;
+    border-radius: 14px;
+}
+
+.qsTexto h2 {
+    text-align: left;
+    font-size: 2rem;
+    margin-bottom: 25px;
+    color: #0A2A43;
+}
+
+.qsTexto p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #3C4044;
+    margin-bottom: 15px;
+}
+
+.qsImagen img {
+    width: 100%;
+    max-height: 280px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+
+.cocheAleatorio {
+    text-align: center;
+    margin: 80px auto;
+}
+
+.cocheAleatorio h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #000;
+    background: #f5f7fa; 
+}
+
+.cocheContenido {
+    max-width: 900px;  
+    margin: 0 auto;
+    padding: 30px;
+    background: #fafafa;
+    border-radius: 16px;
+    border: 1px solid #ddd;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    background: white;
+}
+
+.cocheContenido img {
+    width: 100%;
+    max-height: 450px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.nombreCoche {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.cocheContenido button {
+    padding: 12px 28px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.cocheContenido button:hover {
+    background-color: #005fa3;
+}
+
+.seprador {
+    height: 5px;
+    background-color:#0A2A43;
+    padding:25px; ;
 }

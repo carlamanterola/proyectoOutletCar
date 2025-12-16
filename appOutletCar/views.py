@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login
 from .models import Marca, Categoria, Oferta, Coche, Combustible, Favorito
 from django.contrib.admin.views.decorators import staff_member_required
 from django.http import JsonResponse
-
+import random
 
 
 ###### VIEWS ACCESIBLES PARA TODOS ######
@@ -125,4 +125,14 @@ def login_view(request):
 
     return render(request, "login.html")
 
-    
+
+def index(request):
+    coches = Coche.objects.exclude(foto='')
+
+    cocheAleatorio = random.choice(coches) if coches.exists() else None
+
+    context = {
+        "cocheAleatorio": cocheAleatorio
+    }
+
+    return render(request, "index.html", context)

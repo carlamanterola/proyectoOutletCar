@@ -5,10 +5,43 @@
 
 {% block content %}
 
-<div class="tituloinicio">
-    <h1>Coche más barato por cada marca</h1>
-</div>
+<section id="cocheAleatorio" class="cocheAleatorio">
 
+    <h2>¿No sabes qué coche elegir?</h2>
+
+    <div class="cocheContenido">
+
+        <a href="{% url 'ver_oferta' cocheAleatorio.id %}">
+            <img src="{{ cocheAleatorio.foto.url }}" alt="Coche aleatorio">
+        </a>
+
+        <p class="nombreCoche">
+            {{ cocheAleatorio.idMarca }} {{ cocheAleatorio.modelo }}
+        </p>
+
+        <form method="GET">
+            <button type="submit" name="random" value="1">
+                Siguiente coche
+            </button>
+        </form>
+
+    </div>
+
+    <hr class="separador">
+
+</section>
+
+
+
+<div class="tituloinicio">
+    <h2 class="tituloDelIndex">Coche Más Barato Por Cada Marca</h2>
+</div>
+<div>
+    <p class="descripcion">
+        Consulta los coches más económicos disponibles en nuestro catálogo, organizados por marca. <br>
+       Encuentra fácilmente el vehículo que se ajusta a tu presupuesto y necesidades.
+    </p>
+</div>
 <table id="tabla-coches"
        data-url="{% url 'coches_mas_baratos_json' %}">
     <thead>
@@ -24,6 +57,27 @@
 
 <script src="{% static 'js/outlercar.js' %}"></script>
 
+<section class="quienesSomos">
+    <div class="qsTexto">
+        <h2>¿Quiénes somos?</h2>
+        <p>
+            OutletCar es una plataforma dedicada a la venta de vehículos de ocasión
+            y seminuevos al mejor precio.
+        </p>
+        <p>
+            Contamos con un equipo de profesionales con años de experiencia en el
+            sector automovilístico, comprometidos con la transparencia y la
+            satisfacción del cliente.
+        </p>
+    </div>
+
+    <div class="qsImagen">
+        <img src="{% static 'images/logo.png' %}" alt="logo de la empresa">
+    </div>
+</section>
 
 
 {% endblock content %}
+{% block scripts %}
+<script src="{% static 'js/outlercar.js' %}"></script>
+{% endblock %}
