@@ -20,6 +20,8 @@
                         {% endif %}
                         <div class="infoCoche">
                             <h3>{{coche.modelo}}</h3>
+
+                            <p><strong>Lista de Categorías: </strong></p>
                             <ul>
                                 {% for cat in coche.idCat.all %}
                                     <li><a href="{%url 'detalle_categoria' cat.pk %}">{{cat.nomCat}}</a></li>

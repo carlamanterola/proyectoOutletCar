@@ -323,3 +323,66 @@ body {
 body.fade-out {
     opacity: 0;
 }
+
+.btn-eliminar {
+    background-color: #dc3545;
+    color: white; 
+    padding: 8px 16px; 
+}
+
+.contenedorEliminacion {
+    max-width: 450px;
+    margin: 50px auto;
+    padding: 30px;
+    text-align: center;
+}
+
+.titulo {
+    color: #000000;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.contenedorEliminacion p {
+    margin-bottom: 25px;
+    color: #000000; 
+    font-size: 1.1rem;
+}
+
+.contenedorEliminacion form * {
+    display: block; 
+    width: 100%; 
+    padding: 12px;
+    text-align: center;
+    margin-top: 15px; 
+}
+
+.enviar { 
+    background-color: #dc3545; 
+    color: white; 
+}
+
+.cancelar { 
+    background-color: #f8f9fa; 
+    color: #000000;
+}
+
+.infoCoche ul {
+    list-style: none; 
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;             
+}
+
+.infoCoche ul li a {
+    display: inline-block;
+    padding: 3px 8px;
+    color: #000000;
+}
+
+.llevarCombustible {
+    color: #000000;
+}
