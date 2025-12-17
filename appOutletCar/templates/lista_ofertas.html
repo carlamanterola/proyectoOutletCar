@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}Outlet Car - Ofertas{% endblock %}
 
@@ -34,16 +35,16 @@
 
         <div>
             <label for="filtroKm">
-            Kilómetros máximos: <span id="kmValor">300000</span> km
+            Kilómetros máximos: <span id="kmValor"></span> km
             </label>
-            <input type="range" id="filtroKm" min="0" max="300000" step="5000" value="300000">
+            <input type="range" id="filtroKm" min="30000" max="300000" step="5000" value="300000">
         </div>
 
         <div>
             <label for="filtroPrecio">
-            Precio máximo: <span id="precioValor">50000</span> €
+            Precio máximo: <span id="precioValor"></span> €
             </label>
-            <input type="range" id="filtroPrecio" min="0" max="50000" step="1000" value="50000">
+            <input type="range" id="filtroPrecio" min="10000" max="50000" step="1000" value="50000">
         </div>
 
         <input type="button" id="aplicarFiltros" value="Aplicar Filtros">
@@ -55,13 +56,13 @@
             <ul class = 'lista'>
             {% for o in lista_ofertas %}
                 <li class="elemento"
-                    data-modelo="{{ o.oferta.modelo }}"
-                    data-marca="{{ o.oferta.idMarca.nomMarca }}"
-                    data-combustible="{{ o.oferta.idCombustible.nomCombustible }}"
+                    data-modelo="{{ o.oferta.modelo|lower }}"
+                    data-marca="{{ o.oferta.idMarca.nomMarca|lower }}"
+                    data-combustible="{{ o.oferta.idCombustible.nomCombustible|lower }}"
                     data-km="{{ o.oferta.km }}"
                     data-precio="{{ o.precio }}">
                     
-                    <div class = "foto-oferta">
+                    <div class="foto-oferta">
                         <img src="{{ o.oferta.foto.url }}">
                     </div>
                     <div>
@@ -73,6 +74,7 @@
                         <a href="{% url 'ver_oferta' o.id %}" class="btn-verDetalle">Más Detalles</a>
                     </div>
                 </li>
+
             {% endfor %}
             </ul>
         {%else%}
@@ -81,3 +83,7 @@
     </div>
 </div>
 {% endblock content %}
+
+{% block scripts %}
+    <script src="{% static 'js/lista_ofertas.js' %}"></script>
+{% endblock scripts %}

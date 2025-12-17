@@ -530,15 +530,17 @@ body.fade-out {
     background-color:#0A2A43;
     padding:25px; ;
 }
-.volverArriba {
-    text-align: center;
-    margin: 40px 0;
-}
 
-.volverArriba a {
+.volverArriba {
+    position: fixed;      
+    bottom: 20px;         
+    right: 20px;          
+    background-color: #005fa3; 
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
     text-decoration: none;
     font-weight: bold;
-    color: #333;
 }
 
 .volverArriba a:hover {
@@ -564,12 +566,71 @@ body.fade-out {
     margin: 0;
     display: flex;
     justify-content: center;
-
 }
 
 .filtros {
     width: 30%;
+    height: 500px;
     background-color: #F2F2F2;
     border: 1px solid #C8C8C8;
-    padding: 10px;
+    padding: 20px;
+    display: grid;
+    justify-content: stretch;
+    align-content: start;
 }
+
+.filtros p {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.filtros div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.filtros label {
+    margin-bottom: 5px;
+    font-size: 0.95em;
+    color: #333;
+}
+
+.filtros input[type="search"],
+.filtros select {
+    padding: 8px;
+    border: 1px solid #C8C8C8;
+    font-size: 0.95em;
+}
+
+.filtros input[type="search"]:focus,
+.filtros select:focus {
+    outline: none;
+    border-color: #4A90E2;
+}
+
+.filtros input[type="range"] {
+    width: 100%;
+    margin-top: 5px;
+}
+
+.filtros span {
+    font-weight: bold;
+    color: #4A90E2;
+}
+
+.filtros input[type="button"] {
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.filtros input[type="button"]:hover {
+    background-color: #357ABD;
+}
+

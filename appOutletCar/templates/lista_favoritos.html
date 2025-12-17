@@ -20,11 +20,11 @@
 
                 <div>
                     <p class="precio"><strong>{{ fav.coche.idPrecio.precio }}€</strong></p>
-                    <a href="{% url 'ver_oferta' fav.coche.id %}" class="btn-verDetalle">Más detalles</a>
+                    <a href="{% url 'ver_oferta' fav.coche.idPrecio.id %}" class="btn-verDetalle">Más detalles</a>
                 </div>
             </li>
         {% empty %}
-            <li>No tienes coches favoritos aún.</li>
+            <li class="elemento">No tienes coches favoritos aún.</li>
         {% endfor %}
         
     </ul>

@@ -11,9 +11,9 @@
 
     <div class="cocheContenido">
 
-      <a href="{% url 'verMarca' cocheAleatorio.idMarca.id %}">
+        <a href="{% url 'verMarca' cocheAleatorio.idMarca.id %}">
         <img src="{{ cocheAleatorio.foto.url }}" alt="Coche aleatorio">
-      </a>
+        </a>
 
     
 
@@ -41,11 +41,11 @@
 <div>
     <p class="descripcion">
         Consulta los coches más económicos disponibles en nuestro catálogo, organizados por marca. <br>
-       Encuentra fácilmente el vehículo que se ajusta a tu presupuesto y necesidades.
+        Encuentra fácilmente el vehículo que se ajusta a tu presupuesto y necesidades.
     </p>
 </div>
 <table id="tabla-coches"
-       data-url="{% url 'coches_mas_baratos_json' %}">
+        data-url="{% url 'coches_mas_baratos_json' %}">
     <thead>
         <tr>
             <th>Marca</th>
@@ -76,14 +76,7 @@
         <img src="{% static 'images/logo.png' %}" alt="logo de la empresa">
     </div>
 
-  
 </section>
-<section>
-    <div class="volverArriba">
-        <a href="#arriba"> Volver arriba</a>
-    </div>
-</section>
-  
 
 
 {% endblock content %}

@@ -1,3 +1,20 @@
+var sliderKm = document.getElementById("filtroKm");
+var valorKm = document.getElementById("kmValor");
+valorKm.innerHTML = sliderKm.value;
+
+sliderKm.oninput = function() {
+    valorKm.innerHTML = this.value;
+}
+
+var sliderPrecio = document.getElementById("filtroPrecio");
+var valorPrecio = document.getElementById("precioValor");
+valorPrecio.innerHTML = sliderPrecio.value;
+
+sliderPrecio.oninput = function() {
+    valorPrecio.innerHTML = this.value;
+}
+
+
 document.addEventListener("DOMContentLoaded", () => {
 
     const filtroNombre = document.getElementById("filtroNombre");

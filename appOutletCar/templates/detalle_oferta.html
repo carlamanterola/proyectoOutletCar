@@ -3,35 +3,47 @@
 {% block title %}Outlet Car - Ofertas{% endblock %}
 
 {% block content %}
-    {% if coche %}
-    {% comment %}MÁS ADELANTE SE AÑADIRÁN FOTOS DE LOS MODELOS??{% endcomment %}
-    
-        <p><strong>Matrícula:</strong> {{coche.matricula}}</p>
-        <p><strong>Modelo:</strong> {{coche.modelo}}</p>
-        <p><strong>Marca:</strong> <a = href="{%url 'verMarca' coche.idMarca.id %}">{{coche.idMarca.nomMarca}}</a></p>
-        <p><strong>Año:</strong> {{coche.anio}}</p>
-        <p><strong>Combustible:</strong> {{coche.idCombustible.nomCombustible}}</p>
-        <p><strong>Kilometraje:</strong> {{coche.km}}</p>
-        <p><strong>Precio:</strong> {{coche.idPrecio.precio}}€</p>
-        
-        <p><strong>Lista de Categorías: </strong></p>
-        <ul>
-            {% for cat in coche.idCat.all %}
-                <li><a href="{%url 'detalle_categoria' cat.pk %}">{{cat.nomCat}}</a></li>
-            {% empty %}
-                <li>Sin categorías.</li>
-            {% endfor %}
-        </ul>
-    
-    {% else %}
-        <p>No hay ningún coche asociado a esta oferta.</p>
-    {% endif %}
+<div class="contenedorCoche">
+    <div class="cocheDetalle">
+        <div class="foto">
+            {% if coche.foto %}
+                <img src="{{ coche.foto.url }}">
+            {% endif %}
+        </div>
 
+        <div class="infoCoche">
+            {% if coche %}
+                <p><strong>Matrícula:</strong> {{coche.matricula}}</p>
+                <p><strong>Modelo:</strong> {{coche.modelo}}</p>
+                <p><strong>Marca:</strong> <a = href="{%url 'verMarca' coche.idMarca.id %}">{{coche.idMarca.nomMarca}}</a></p>
+                <p><strong>Año:</strong> {{coche.anio}}</p>
+                <p><strong>Combustible:</strong> {{coche.idCombustible.nomCombustible}}</p>
+                <p><strong>Kilometraje:</strong> {{coche.km}}</p>
+                <p><strong>Precio:</strong> {{coche.idPrecio.precio}}€</p>
+                
+                <p><strong>Lista de Categorías: </strong></p>
+                <ul>
+                    {% for cat in coche.idCat.all %}
+                        <li><a href="{%url 'detalle_categoria' cat.pk %}">{{cat.nomCat}}</a></li>
+                    {% empty %}
+                        <li>Sin categorías.</li>
+                    {% endfor %}
+                </ul>
+            
+            {% else %}
+                <p>No hay ningún coche asociado a esta oferta.</p>
+            {% endif %}
+        </div>
+    </div>
     {% if user.is_authenticated %}
-        <a href="{% url 'agregar_favorito' coche.id %}" class="btn btn-primary">
-            Guardar en favoritos
-        </a>
-    {% else %}
-        <a href="{% url 'login' %}">Inicia sesión para guardar favoritos</a>
-    {% endif %}
+            <a href="{% url 'agregar_favorito' coche.id %}" class="btn-verDetalle">
+                Guardar en favoritos
+            </a>
+        {% else %}
+            <a href="{% url 'login' %}">Inicia sesión para guardar favoritos</a>
+
+        {% endif %}
+
+</div>
+
 {% endblock content %}
