@@ -11,7 +11,7 @@ body, html {
 
 /* PORTADA */
 .portada {
-    /*tengo q escoger una imagen pa meter usando background-image*/
+    
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/portada.jpg");
     height: 40%;
     background-position: center;
@@ -541,6 +541,7 @@ body.fade-out {
     border-radius: 5px;
     text-decoration: none;
     font-weight: bold;
+    
 }
 
 .volverArriba a:hover {
@@ -633,4 +634,6 @@ body.fade-out {
 .filtros input[type="button"]:hover {
     background-color: #357ABD;
 }
-
+.inicioSesion:hover {
+    text-decoration: underline;
+}

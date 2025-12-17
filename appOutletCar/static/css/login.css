@@ -1,5 +1,5 @@
 /* Fondo solo para login */
-.login_base {
+.loginBase {
     min-height: calc(100vh - 40%);
     display: flex;
     justify-content: center;
@@ -8,7 +8,7 @@
 }
 
 
-.login_container {
+.loginContainer {
     width: 100%;
     max-width: 420px;
     padding: 35px;
@@ -18,7 +18,7 @@
 }
 
 
-.login_container h1 {
+.loginContainer h1 {
     margin-bottom: 25px;
     font-size: 26px;
     color: #0A2A43;
@@ -26,21 +26,21 @@
 }
 
 
-.login_form {
+.loginForm {
     display: flex;
     flex-direction: column;
     gap: 18px;
 }
 
 
-.login_form input {
+.loginForm input {
     padding: 12px 14px;
     font-size: 15px;
     border-radius: 8px;
     border: 1px solid #ccc;
 }
 
-.login_form button {
+.loginForm button {
     margin-top: 10px;
     padding: 12px;
     font-size: 16px;
@@ -52,21 +52,27 @@
     cursor: pointer;
 }
 
-.login_form button:hover {
+.loginForm button:hover {
     background-color: #083055;
 }
 
 
-.login_error {
-    color: #c0392b;
-    font-size: 18px;
- 
-}
-
-
-.login_volver {
+.loginVolver {
     display: inline-block;
     margin-top: 22px;
     color: #0A2A43;
     font-size: 14px;
+}
+.loginError {
+    margin-top: 15px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    background-color: #ffeaea;
+    color: #b00020;
+    border: 1px solid #f5b5b5;
+    font-size: 0.95rem;
+    text-align: center;
+}
+.loginVolver:hover {
+    text-decoration: underline;
 }

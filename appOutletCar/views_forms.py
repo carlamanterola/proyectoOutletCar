@@ -2,6 +2,10 @@ from .forms import OutlerCarModelForm
 from django.shortcuts import render
 from .models import Coche, Oferta
 from django.contrib.admin.views.decorators import staff_member_required
+
+
+# Formulario para agregar un nuevo coche. Solo para usuarios staff
+
 @staff_member_required
 def formulario_coche(request):
 
@@ -10,6 +14,7 @@ def formulario_coche(request):
 
     return render(request, 'form_coche.html', context)
 
+# Procesa el formulario para agregar un nuevo coche. Solo para usuarios staff también
 @staff_member_required
 def procesar_form_coche(request):
     from .forms import OutlerCarModelForm

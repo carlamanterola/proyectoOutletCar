@@ -7,7 +7,8 @@ from django.http import JsonResponse
 import random
 
 
-###### VIEWS ACCESIBLES PARA TODOS ######
+#Algunas wiews no son visibles para todos los usuarios, algunas requieren login y otras ser staff
+#a continuación se muestran las views de la aplicación
 
 
 # Devuelve una lista de ofertas
@@ -30,13 +31,14 @@ def ver_oferta(request, idOferta):
     return render(request, 'detalle_oferta.html', context)
 
 
-####################### TEMPORAL, PROBABLEMENTE SE CAMBIE
+# Agregar un coche a favoritos + tiene que estar logueado
 @login_required
 def agregar_favorito(request, coche_id):
     coche = get_object_or_404(Coche, id=coche_id)
     Favorito.objects.get_or_create(usuario=request.user, coche=coche)
     return redirect(request.META.get("HTTP_REFERER", "lista_favoritos"))
 
+# Visualizar la lista de favoritos del usuario logueado
 @login_required
 def lista_favoritos(request):
     favoritos = Favorito.objects.filter(usuario=request.user).select_related("coche")
@@ -51,7 +53,6 @@ def visualizar_marcas(request):
 
 #Visualizar los coches de una marca en concreto segun ID
 def ver_marca(request, idMarca):
-    #marcas = Marca.objects.get(id=idMarca)
     marcas = get_object_or_404(Marca, id=idMarca)
     coches = get_list_or_404(Coche, idMarca_id=idMarca)
     context = {"coches": coches, "idMarca": idMarca, "marca": marcas}
@@ -70,10 +71,12 @@ def detalle_categoria(request, idCat):
     context = {'categoria': categoria, 'coches': coches}
     return render(request, 'detalle_categoria.html', context)
 
-
+ 
+ #  General index view
 def index(request):
     return render(request, 'index.html')
 
+#  View para obtener el coche más barato de cada marca  cargador en formato JSON
 def coches_mas_baratos_json(request):
     marcas = Marca.objects.all()
     resultado = []
@@ -94,12 +97,14 @@ def coches_mas_baratos_json(request):
 
     return JsonResponse(resultado, safe=False)
 
+# Visualizar los coches de un combustible en concreto segun ID
 
 def combustible(request, idCombustible):
     combustible = get_object_or_404(Combustible, pk=idCombustible)
     coches = Coche.objects.filter(idCombustible=combustible)
     return render(request, 'detalle_combustible.html', {'combustible': combustible, 'coches': coches})
 
+# eliminar un coche Solo para usuarios staff
 @staff_member_required
 def eliminar_coche(request, pk):
     coche = get_object_or_404(Coche, pk=pk)
@@ -113,7 +118,7 @@ def eliminar_coche(request, pk):
     }
     return render(request, 'eliminar_coche.html', context)
 
-
+# view de login
 def login_view(request):
     if request.method == "POST":
         username = request.POST.get("username")
@@ -131,7 +136,7 @@ def login_view(request):
 
     return render(request, "login.html")
 
-
+# carga un coche aleatorio en la página principal, apartado inspirate
 def index(request):
     coches = Coche.objects.exclude(foto='')
 

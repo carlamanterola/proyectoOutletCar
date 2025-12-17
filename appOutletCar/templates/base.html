@@ -42,7 +42,7 @@
                     {% if user.is_staff %}
                             <li>Hola trabajador, {{ user.username }}</li>
                     {% else %}
-                            <li>Hola, {{ user.username }}</li>
+                            <li>Hola Usuario, {{ user.username }}</li>
                     {% endif %}
 
                     <li>
@@ -55,7 +55,7 @@
                     </li>
 
     {% else %}
-        <li><a href="{% url 'login' %}">Iniciar sesión</a></li>
+        <li><a class="inicioSesion" href="{% url 'login' %}">Iniciar sesión</a></li>
     {% endif %}
 </ul>
 
@@ -93,7 +93,7 @@
         </footer>
         {% block arriba %}
         <div class="volverArriba">
-            <a href="#arriba"> Volver arriba</a>
+            <a href="#arriba" style="color: white;"> Volver arriba</a>
         </div>
         {% endblock arriba %}
         {% block scripts %}{% endblock %}
