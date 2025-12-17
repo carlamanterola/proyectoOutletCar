@@ -3,26 +3,81 @@
 {% block title %}Outlet Car - Ofertas{% endblock %}
 
 {% block content %}
+<div class = "contenedor-l-ofert">
+    <div class="filtros">
+        <p>Filtros:</p>
+
+        <div>
+            <label for="filtroNombre">Nombre de Modelo: </label>
+            <input type="search" id="filtroNombre" placeholder="Ej: Clio">
+        </div>
+
+        <div>
+            <label for="filtroMarca">Marca: </label>
+            <select id="filtroMarca">
+                <option value=""></option>
+                {% for marca in lista_marcas %}
+                    <option value="{{ marca.nomMarca }}">{{ marca.nomMarca }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div>
+            <label for="filtroCombustible">Tipo de Combustible: </label>
+            <select id="filtroCombustible">
+                <option value=""></option>
+                {% for c in lista_combustibles %}
+                    <option value="{{ c.nomCombustible }}">{{ c.nomCombustible }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div>
+            <label for="filtroKm">
+            Kilómetros máximos: <span id="kmValor">300000</span> km
+            </label>
+            <input type="range" id="filtroKm" min="0" max="300000" step="5000" value="300000">
+        </div>
+
+        <div>
+            <label for="filtroPrecio">
+            Precio máximo: <span id="precioValor">50000</span> €
+            </label>
+            <input type="range" id="filtroPrecio" min="0" max="50000" step="1000" value="50000">
+        </div>
+
+        <input type="button" id="aplicarFiltros" value="Aplicar Filtros">
+        
+    </div>
     <div class = 'contenedorLista'>
         <h2 class = titulo>Ofertas Disponibles</h2>
-    {%comment %} Lista de todas las ofertas. ACTUALMENTE: solo precio. {% endcomment %}
-    {% if lista_ofertas %}
-        <ul class = 'lista'>
-        {% for o in lista_ofertas %}
-            <li class="elemento">
-                <div>
-                    <p class="nombre">{{ o.oferta.idMarca.nomMarca }} {{ o.oferta.modelo }}</p>
-                    <p class="detalles">{{ o.oferta.idCombustible.nomCombustible }}, {{ o.oferta.km }} km</p>
-                </div>
-                <div>
-                    <p class="precio"><strong>{{ o.precio }}€</strong></p>
-                    <a href="{% url 'ver_oferta' o.id %}" class="btn-verDetalle">Más Detalles</a>
-                </div>
-            </li>
-        {% endfor %}
-        </ul>
-    {%else%}
-        <p>No hay ofertas creadas.</p>
-    {%endif%}
+        {% if lista_ofertas %}
+            <ul class = 'lista'>
+            {% for o in lista_ofertas %}
+                <li class="elemento"
+                    data-modelo="{{ o.oferta.modelo }}"
+                    data-marca="{{ o.oferta.idMarca.nomMarca }}"
+                    data-combustible="{{ o.oferta.idCombustible.nomCombustible }}"
+                    data-km="{{ o.oferta.km }}"
+                    data-precio="{{ o.precio }}">
+                    
+                    <div class = "foto-oferta">
+                        <img src="{{ o.oferta.foto.url }}">
+                    </div>
+                    <div>
+                        <p class="nombre">{{ o.oferta.idMarca.nomMarca }} {{ o.oferta.modelo }}</p>
+                        <p class="detalles">{{ o.oferta.idCombustible.nomCombustible }}, {{ o.oferta.km }} km</p>
+                    </div>
+                    <div>
+                        <p class="precio"><strong>{{ o.precio }}€</strong></p>
+                        <a href="{% url 'ver_oferta' o.id %}" class="btn-verDetalle">Más Detalles</a>
+                    </div>
+                </li>
+            {% endfor %}
+            </ul>
+        {%else%}
+            <p>No hay ofertas creadas.</p>
+        {%endif%}
     </div>
+</div>
 {% endblock content %}

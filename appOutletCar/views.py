@@ -12,8 +12,14 @@ import random
 
 # Devuelve una lista de ofertas
 def index_ofertas(request):
-    ofertas = get_list_or_404(Oferta)
-    context = {'lista_ofertas': ofertas}
+    ofertas = Oferta.objects.select_related(
+        'oferta', 'oferta__idMarca', 'oferta__idCombustible'
+    ).all()
+
+    marcas = Marca.objects.all()
+    combustibles = Combustible.objects.all()
+    context = {'lista_ofertas': ofertas,'lista_marcas': marcas, 'lista_combustibles': combustibles}
+
     return render(request, 'lista_ofertas.html', context)
 
 # Devuelve los detalles de una oferta en concreto según ID

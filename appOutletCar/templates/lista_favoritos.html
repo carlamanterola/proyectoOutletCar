@@ -3,21 +3,30 @@
 {% block title %}Outlet Car - Ofertas{% endblock %}
 
 {% block content %}
+<div class="contenedorLista">
     <h1>Mis coches favoritos</h1>
 
     <ul>
         {% for fav in favoritos %}
-            <li>
-                {{ fav.coche.idMarca.nomMarca }} {{ fav.coche.modelo }}  
-                - {{ fav.coche.anio }}  
-                - {{ fav.coche.km }} km  
-                - {{ fav.coche.idPrecio.precio }} €
+            <li class="elemento">
+                <div class = "foto-oferta">
+                    <img src="{{ fav.coche.foto.url }}">
+                </div>
 
-                <a href="{% url 'ver_oferta' fav.coche.id %}">Ver detalle</a>
+                <div>
+                    <p class="nombre">{{ fav.coche.idMarca.nomMarca }} {{ fav.coche.modelo }}</p>
+                    <p class="detalles">{{ fav.coche.idCombustible.nomCombustible }}, {{ fav.coche.km }} km</p>
+                </div>
+
+                <div>
+                    <p class="precio"><strong>{{ fav.coche.idPrecio.precio }}€</strong></p>
+                    <a href="{% url 'ver_oferta' fav.coche.id %}" class="btn-verDetalle">Más detalles</a>
+                </div>
             </li>
         {% empty %}
             <li>No tienes coches favoritos aún.</li>
         {% endfor %}
         
     </ul>
+</div>
 {% endblock content %}

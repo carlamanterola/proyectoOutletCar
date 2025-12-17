@@ -552,3 +552,24 @@ body.fade-out {
     color: rgb(0, 0, 0);
     text-align: center;
 }
+
+.elemento img {
+    width: 180px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.contenedor-l-ofert {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+
+}
+
+.filtros {
+    width: 30%;
+    background-color: #F2F2F2;
+    border: 1px solid #C8C8C8;
+    padding: 10px;
+}
