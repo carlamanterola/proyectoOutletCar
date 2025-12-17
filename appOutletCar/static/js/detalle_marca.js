@@ -1,15 +1,5 @@
 //para desvanecer la pagina despacio
 
-document.querySelectorAll('.btn-eliminar').forEach(btn => {
-    btn.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        if (!confirm('¿Quieres eliminar este coche?')) {
-            e.preventDefault();
-        }
-    });
-});
-
 const filtroKm = document.getElementById('filtroKm');
 filtroKm.addEventListener('input', () => {
     const maxKm = filtroKm.value;
