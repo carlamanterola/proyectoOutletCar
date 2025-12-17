@@ -9,19 +9,20 @@
     <ul>
         {% for fav in favoritos %}
             <li class="elemento">
-                <div class = "foto-oferta">
-                    <img src="{{ fav.coche.foto.url }}">
-                </div>
+                    <div class = "foto-oferta">
+                        <a href="{% url 'eliminar_favorito' fav.coche.id %}" style="margin-right: 10px; color: red">Eliminar</a>
+                        <img src="{{ fav.coche.foto.url }}">
+                    </div>
 
-                <div>
-                    <p class="nombre">{{ fav.coche.idMarca.nomMarca }} {{ fav.coche.modelo }}</p>
-                    <p class="detalles">{{ fav.coche.idCombustible.nomCombustible }}, {{ fav.coche.km }} km</p>
-                </div>
+                    <div>
+                        <p class="nombre">{{ fav.coche.idMarca.nomMarca }} {{ fav.coche.modelo }}</p>
+                        <p class="detalles">{{ fav.coche.idCombustible.nomCombustible }}, {{ fav.coche.km }} km</p>
+                    </div>
 
-                <div>
-                    <p class="precio"><strong>{{ fav.coche.idPrecio.precio }}€</strong></p>
-                    <a href="{% url 'ver_oferta' fav.coche.idPrecio.id %}" class="btn-verDetalle">Más detalles</a>
-                </div>
+                    <div>
+                        <p class="precio"><strong>{{ fav.coche.idPrecio.precio }}€</strong></p>
+                        <a href="{% url 'ver_oferta' fav.coche.idPrecio.id %}" class="btn-verDetalle">Más detalles</a>
+                    </div>
             </li>
         {% empty %}
             <li class="elemento">No tienes coches favoritos aún.</li>

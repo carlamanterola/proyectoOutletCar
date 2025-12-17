@@ -38,6 +38,13 @@ def agregar_favorito(request, coche_id):
     Favorito.objects.get_or_create(usuario=request.user, coche=coche)
     return redirect(request.META.get("HTTP_REFERER", "lista_favoritos"))
 
+# Eliminar un coche de favoritos + tiene que estar logueado
+@login_required
+def eliminar_favorito(request, coche_id):
+    favorito = get_object_or_404(Favorito, usuario=request.user, coche_id=coche_id)
+    favorito.delete()
+    return redirect(request.META.get("HTTP_REFERER", "lista_favoritos"))
+
 # Visualizar la lista de favoritos del usuario logueado
 @login_required
 def lista_favoritos(request):

@@ -254,6 +254,7 @@ p.nombre {
 .contenedorCoche {
     display: grid;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .cocheDetalle {

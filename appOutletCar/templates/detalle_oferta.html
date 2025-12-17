@@ -15,7 +15,7 @@
             {% if coche %}
                 <p><strong>Matrícula:</strong> {{coche.matricula}}</p>
                 <p><strong>Modelo:</strong> {{coche.modelo}}</p>
-                <p><strong>Marca:</strong> <a = href="{%url 'verMarca' coche.idMarca.id %}">{{coche.idMarca.nomMarca}}</a></p>
+                <p><strong>Marca:</strong> <a href="{%url 'verMarca' coche.idMarca.id %}" style="color: black">{{coche.idMarca.nomMarca}}</a></p>
                 <p><strong>Año:</strong> {{coche.anio}}</p>
                 <p><strong>Combustible:</strong> {{coche.idCombustible.nomCombustible}}</p>
                 <p><strong>Kilometraje:</strong> {{coche.km}}</p>
@@ -35,15 +35,18 @@
             {% endif %}
         </div>
     </div>
-    {% if user.is_authenticated %}
+    <div>
+        {% if user.is_authenticated %}
             <a href="{% url 'agregar_favorito' coche.id %}" class="btn-verDetalle">
                 Guardar en favoritos
             </a>
+
         {% else %}
             <a href="{% url 'login' %}">Inicia sesión para guardar favoritos</a>
-
         {% endif %}
+        </div>
 
-</div>
+
+<a href="{% url 'lista_ofertas' %}" class="btn-volver"> <-- Volver</a>
 
 {% endblock content %}
