@@ -35,18 +35,19 @@
             {% endif %}
         </div>
     </div>
+
+    {% if user.is_authenticated %}
+        <a href="{% url 'agregar_favorito' coche.id %}" class="btn-verDetalle">
+            Guardar en favoritos
+        </a>
+
+    {% else %}
+        <a href="{% url 'login' %}" class="btn-verDetalle">Inicia sesión para guardar favoritos</a>
+    {% endif %}
+
     <div>
-        {% if user.is_authenticated %}
-            <a href="{% url 'agregar_favorito' coche.id %}" class="btn-verDetalle">
-                Guardar en favoritos
-            </a>
-
-        {% else %}
-            <a href="{% url 'login' %}">Inicia sesión para guardar favoritos</a>
-        {% endif %}
-        </div>
-
-
-<a href="{% url 'lista_ofertas' %}" class="btn-volver"> <-- Volver</a>
+        <a href="{% url 'lista_ofertas' %}" class="btn-volver"> <-- Volver</a>
+    </div>
+</div>
 
 {% endblock content %}
